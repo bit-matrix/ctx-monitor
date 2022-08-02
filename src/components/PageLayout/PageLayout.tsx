@@ -1,5 +1,5 @@
 import React from "react";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { HOME } from "../../app/ROUTE";
 import Home from "../Svg/Icons/Home";
 import "./PageLayout.scss";
@@ -9,13 +9,13 @@ type Props = {
 };
 
 export const PageLayout: React.FC<Props> = ({ children }) => {
-  const history = useHistory();
+  const navigate = useNavigate();
 
   return (
     <div className="content">
       <div className="navbar">
         <div className="appLogo">
-          <button className="navbarHomeButton" onClick={() => history.push(HOME.PATH)}>
+          <button className="navbarHomeButton" onClick={() => navigate(HOME.PATH)}>
             <Home />
           </button>
         </div>
