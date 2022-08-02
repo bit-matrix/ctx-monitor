@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { PageLayout } from "../components/PageLayout/PageLayout";
 import NotFoundPage from "../pages/NotFound/NotFound";
 import { TxDetailPage } from "../pages/TxDetailPage/TxDetailPage";
@@ -8,16 +8,16 @@ import * as ROUTE from "./ROUTE";
 
 const AppRouter = () => {
   return (
-    <Router>
+    <BrowserRouter>
       <PageLayout>
-        <Switch>
-          <Route exact path={ROUTE.HOME.PATH} component={TxsPage} />
-          <Route path={ROUTE.TXS.PATH} component={TxsPage} />
-          <Route path={`${ROUTE.TX_DETAIL.PATH}/:id`} component={TxDetailPage} />
-          <Route path={ROUTE.NOT_FOUND.PATH} component={NotFoundPage} />
-        </Switch>
+        <Routes>
+          <Route path={ROUTE.HOME.PATH} element={<TxsPage />} />
+          <Route path={ROUTE.TXS.PATH} element={<TxsPage />} />
+          <Route path={`${ROUTE.TX_DETAIL.PATH}/:id`} element={<TxDetailPage />} />
+          <Route path={ROUTE.NOT_FOUND.PATH} element={<NotFoundPage />} />
+        </Routes>
       </PageLayout>
-    </Router>
+    </BrowserRouter>
   );
 };
 
