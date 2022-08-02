@@ -14,10 +14,20 @@
   background-color: #21272d;
   display: flex;
   margin-bottom: 2.5rem;
-  display: flex;
   justify-content: space-between;
   align-items: center;
   height: 5rem;
+  padding-left: 1.5rem !important;
+  padding-right: 1.5rem !important;
+}
+
+.navbarHomeButton {
+  background: transparent;
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .appLogo {
