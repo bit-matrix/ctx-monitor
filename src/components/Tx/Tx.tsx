@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 
 import React from "react";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { TX_DETAIL } from "../../app/ROUTE";
 import "./Tx.scss";
 
@@ -10,10 +10,10 @@ type Props = {
 };
 
 export const Tx: React.FC<Props> = ({ data }) => {
-  const history = useHistory();
+  const navigate = useNavigate();
 
   const onClick = (txId: string) => {
-    history.push(`${TX_DETAIL.PATH}/${txId}`);
+    navigate(`${TX_DETAIL.PATH}/${txId}`);
   };
 
   return (
