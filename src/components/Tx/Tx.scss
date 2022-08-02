@@ -1,0 +1,85 @@
+.transactionsTableLinkRow {
+  cursor: pointer;
+}
+
+.transactionsTable .transactionsTable-row {
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+}
+
+.transactionsTable .transactionsTable-row > * {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.transactionsTable .transactionsTable-row.header,
+.transactionsTable .transactionsTable-row.transactionData {
+  height: 3.25rem;
+}
+
+.transactionsTable .transactionsTable-row.header > *,
+.transactionsTable .transactionsTable-row.transactionData > * {
+  font-size: 1rem;
+}
+
+.transactionsTable .transactionsTable-row.header > * {
+  color: #78838e;
+  font-weight: 600;
+}
+
+.transactionsTable .transactionsTable-row.transactionData {
+  border-top: 1px #22242c solid;
+}
+
+.transactionsTable .transactionsTable-row.transactionData:not(.loading):hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.transactionsTable .transactionsTable-row.transactionData > * {
+  font-size: 1rem;
+}
+
+.transactionsTable .transactionsTable-row.loading img {
+  display: block;
+  margin: auto;
+  height: 2.8125rem;
+  width: 2.8125rem;
+  padding: 0.1875rem 0;
+}
+
+.transactionsTable-row {
+  color: #fff !important;
+}
+
+div.transactionsTable-cell {
+  display: flex !important;
+  justify-content: space-between;
+  width: 100% !important;
+  padding: 0.625rem 0;
+  word-break: break-all;
+  text-align: right;
+}
+
+.transactionsTable .transactionsTable-row > div:nth-child(1) {
+  padding-left: 0px;
+}
+
+div.transactionsTable-cell:before {
+  width: 45%;
+  padding-right: 10px;
+  font-weight: 600;
+  color: #78838e;
+  margin-right: 3.125rem;
+  word-break: keep-all;
+}
+
+div.transactionsTable-cell:before {
+  content: attr(data-label);
+  text-align: left;
+  width: auto;
+}
+
+.highlightedText {
+  color: #adfbc4 !important;
+}
