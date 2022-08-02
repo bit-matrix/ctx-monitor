@@ -1,0 +1,138 @@
+.transactionsTable {
+  padding: 1.875rem 0;
+  border-radius: 0.5rem;
+  box-shadow: 0 20px 32px 0 rgba(0, 0, 0, 0.08);
+  background: rgb(28, 33, 39);
+  background: linear-gradient(90deg, rgba(28, 33, 39, 0.87) 7%, rgba(21, 24, 28, 1) 50%);
+}
+
+.transactionsTableTitle {
+  padding: 0 1.25rem;
+}
+
+.transactionsTableRow {
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+}
+
+.transactionsTableRow > * {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.transactionsTable .transactionsTableRow.header,
+.transactionsTable .transactionsTableRow.transactionData {
+  height: 3.25rem;
+}
+
+.transactionsTable .transactionsTableRow.header > *,
+.transactionsTable .transactionsTableRow.transactionData > * {
+  font-size: 1rem;
+}
+
+.transactionsTable .transactionsTableRow.header > * {
+  color: #78838e;
+  font-weight: 600;
+}
+
+.transactionsTable .transactionsTableRow.transactionData {
+  border-top: 1px #22242c solid;
+  text-decoration: none;
+}
+
+.transactionsTable .transactionsTableRow.transactionData:not(.loading):hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.transactionsTable .transactionsTableRow.transactionData > * {
+  font-size: 1rem;
+}
+
+.transactionsTable .transactionsTableRow.loading img {
+  display: block;
+  margin: auto;
+  height: 2.8125rem;
+  width: 2.8125rem;
+  padding: 0.1875 0;
+}
+
+.transactionsTableRow {
+  color: #fff !important;
+}
+
+@media only screen and (max-width: 768px) {
+  div.transactionsTableRow.header {
+    display: none !important;
+  }
+
+  .transactionsTableRow {
+    margin: 0 0 1rem 0;
+    display: flex !important;
+    flex-direction: column !important;
+    height: auto !important;
+    padding: 1.25rem;
+  }
+
+  .transactions-table-link-row {
+    margin-bottom: 1.25rem;
+  }
+
+  .transactions-table-link-row:nth-child(odd) {
+    background: #22242c;
+  }
+
+  .transactionsTable .transactionsTableRow.block-data > * {
+    border: none;
+    position: relative;
+    padding-left: 0 !important;
+    padding: 0.625rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100% !important;
+    text-align: right;
+  }
+
+  .transactionsTableRow {
+    display: block;
+  }
+
+  div.transactionsTableCell {
+    display: flex !important;
+    justify-content: space-between;
+    width: 100% !important;
+    padding: 0.625rem 0;
+    word-break: break-all;
+    text-align: right;
+  }
+
+  .transactionsTable .transactionsTableRow > div:nth-child(1) {
+    padding-left: 0px;
+  }
+
+  div.transactionsTableCell:before {
+    width: 45%;
+    padding-right: 0.625rem;
+    font-weight: 600;
+    color: #78838e;
+    margin-right: 3.125rem;
+    word-break: keep-all;
+  }
+
+  div.transactionsTableCell:before {
+    content: attr(data-label);
+    text-align: left;
+    width: auto;
+  }
+}
+
+.blocks-table .blocks-table-row,
+.transactionsTable .transactionsTableRow {
+  padding: 1.25rem 1.875rem;
+}
+
+.blocks-table .blocks-table-row,
+.transactionsTable .transactionsTableRow {
+  padding: 1.25rem;
+}
