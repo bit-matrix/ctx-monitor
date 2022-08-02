@@ -11,8 +11,7 @@ const AppRouter = () => {
     <Router>
       <PageLayout>
         <Switch>
-          <Route exact path="/" component={TxsPage} />
-
+          <Route exact path={ROUTE.HOME.PATH} component={TxsPage} />
           <Route path={ROUTE.TXS.PATH} component={TxsPage} />
           <Route path={`${ROUTE.TX_DETAIL.PATH}/:id`} component={TxDetailPage} />
           <Route path={ROUTE.NOT_FOUND.PATH} component={NotFoundPage} />

@@ -3,11 +3,14 @@ export type RouteType = {
   TITLE: string;
 };
 
-// base routes
+//home route
+export const HOME: RouteType = { PATH: "/", TITLE: "Home" };
+
+// base route
 export const TXS: RouteType = { PATH: "/txs", TITLE: "Transactions" };
 
-// detail routes
+// detail route
 export const TX_DETAIL: RouteType = { PATH: "/tx", TITLE: "Transaction" };
 
-// not-found
+// not found
 export const NOT_FOUND: RouteType = { PATH: "*", TITLE: "Page Not Found :(" };
