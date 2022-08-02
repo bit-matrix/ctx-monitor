@@ -1,20 +1,20 @@
 import React, { useEffect } from "react";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { NOT_FOUND } from "../../app/ROUTE";
 
 const NotFoundPage = () => {
-  const history = useHistory();
+  const navigate = useNavigate();
 
   document.title = NOT_FOUND.TITLE;
 
   useEffect(() => {
     const timeOut = setTimeout(() => {
-      history.push("/");
+      navigate("/");
     }, 2000);
     return () => {
       clearTimeout(timeOut);
     };
-  }, [history]);
+  }, [navigate]);
 
   return (
     <>
