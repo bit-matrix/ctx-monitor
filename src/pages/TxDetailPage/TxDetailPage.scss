@@ -1,3 +1,27 @@
+.transaction-page .tx-hash {
+  margin: 0px 0px 50px 0;
+  display: flex;
+  align-items: center;
+}
+
+.transaction-header {
+  padding-left: 1rem;
+}
+
+.code-button {
+  display: inline-block;
+  margin-left: 12px;
+  cursor: pointer;
+  position: relative;
+  vertical-align: text-bottom;
+}
+
+.code-button .code-button-btn {
+  height: 23px;
+  width: 30px;
+  background: url("../../img/icons/copy.png") no-repeat;
+}
+
 .txDetailLoading {
   width: 100%;
   height: 100%;
@@ -42,4 +66,332 @@
 .statsTable ul,
 .statsTable ul > li:last-child {
   margin-bottom: 0;
+}
+
+.tableItem {
+  padding: 0 1.5rem;
+}
+
+.transaction-box:not(:first-of-type) {
+  margin-top: 24px;
+}
+
+.transaction-box {
+  background-color: #15181c;
+  padding: 0 24px;
+  border-radius: 5px;
+}
+
+.transaction-box.loading-transaction {
+  padding: 12px;
+}
+
+.transaction-box.loading-transaction img {
+  display: block;
+  margin: auto;
+  height: 75px;
+  width: 75px;
+}
+
+.transaction-box > .header {
+  height: 88px;
+}
+
+.transaction-box > .header {
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+}
+
+.transaction-box > .header > * {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.transaction-box > .header a {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.details-btn {
+  width: 200px;
+  margin: 20px 30px;
+}
+
+.details-btn > div {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -o-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  user-select: none;
+  cursor: pointer;
+  width: 200px;
+  height: 34px;
+  border: 1px solid rgba(255, 187, 0, 1);
+  border-radius: 2px;
+  color: rgba(255, 187, 0, 1);
+  float: right;
+  text-transform: uppercase;
+  font-size: 14px;
+}
+
+.details-btn > div {
+  display: table;
+  table-layout: fixed;
+  width: 80%;
+}
+
+.details-btn > div > * {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.details-btn > div:focus {
+  outline: none;
+}
+
+.details-btn > div > div:nth-child(1) {
+  text-align: center;
+}
+
+.details-btn > div > div:nth-child(2) {
+  width: 30px;
+}
+
+.details-btn .plus:before,
+.details-btn .minus:before {
+  content: "";
+  width: 11px;
+  height: 11px;
+  display: block;
+}
+.details-btn .plus:before {
+  // background: url("img/icons/plus.png");
+}
+.details-btn .minus:before {
+  // background: url("img/icons/minus.png");
+}
+
+.transaction-box > .ins-and-outs {
+  display: flex;
+  table-layout: fixed;
+  width: 100%;
+}
+
+.transaction-box > .ins-and-outs > * {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.transaction-box > .ins-and-outs > div {
+  vertical-align: top;
+}
+
+.transaction-box > .ins-and-outs > .vins > .vin-loading img,
+.transaction-box > .ins-and-outs .vouts > .vin-loading img {
+  display: block;
+  margin: auto;
+  height: 46px;
+  width: 46px;
+}
+
+.transaction-box > .ins-and-outs > .vins > div:not(.vin-loading),
+.transaction-box > .ins-and-outs .vouts > div:not(.vin-loading) {
+  background-color: #21272d;
+  border-radius: 5px;
+  border: 1px solid #21272d;
+  min-height: 46px;
+  line-height: 20px;
+  font-size: 13px;
+  word-break: break-all;
+}
+
+.transaction-box > .ins-and-outs > .vins > div:not(.vin-loading):not(:first-child),
+.transaction-box > .ins-and-outs .vouts > div:not(.vin-loading):not(:first-child) {
+  margin-top: 12px;
+}
+
+.transaction-box > .ins-and-outs > .vins > div:not(.vin-loading).active,
+.transaction-box > .ins-and-outs .vouts > div:not(.vin-loading).active {
+  height: auto;
+}
+
+.transaction-box > .ins-and-outs > .vins > div:not(.vin-loading).peg-out,
+.transaction-box > .ins-and-outs > .vins > div:not(.vin-loading).peg-in,
+.transaction-box > .ins-and-outs .vouts > div:not(.vin-loading).peg-out,
+.transaction-box > .ins-and-outs .vouts > div:not(.vin-loading).peg-in {
+  border-color: #00ccff;
+}
+
+.transaction-box > .ins-and-outs > .vins > div:not(.vin-loading) > .vin-header,
+.transaction-box > .ins-and-outs > .vins > div:not(.vin-loading) .vout-header,
+.transaction-box > .ins-and-outs .vouts > div:not(.vin-loading) > .vin-header,
+.transaction-box > .ins-and-outs .vouts > div:not(.vin-loading) .vout-header {
+  padding: 12px 24px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-height: 46px;
+}
+
+.transaction-box > .ins-and-outs > .vins > div:not(.vin-loading) > .vin-header > div,
+.transaction-box > .ins-and-outs > .vins > div:not(.vin-loading) .vout-header > div,
+.transaction-box > .ins-and-outs .vouts > div:not(.vin-loading) > .vin-header > div,
+.transaction-box > .ins-and-outs .vouts > div:not(.vin-loading) .vout-header > div {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-end;
+}
+
+.transaction-box > .ins-and-outs > .vins > div:not(.vin-loading) > .vin-header > div > *:nth-child(1),
+.transaction-box > .ins-and-outs > .vins > div:not(.vin-loading) .vout-header > div > *:nth-child(1),
+.transaction-box > .ins-and-outs .vouts > div:not(.vin-loading) > .vin-header > div > *:nth-child(1),
+.transaction-box > .ins-and-outs .vouts > div:not(.vin-loading) .vout-header > div > *:nth-child(1) {
+  flex: 1;
+}
+
+.transaction-box > .ins-and-outs > .vins > div:not(.vin-loading) > .vin-header > div > *:nth-child(2),
+.transaction-box > .ins-and-outs > .vins > div:not(.vin-loading) .vout-header > div > *:nth-child(2),
+.transaction-box > .ins-and-outs .vouts > div:not(.vin-loading) > .vin-header > div > *:nth-child(2),
+.transaction-box > .ins-and-outs .vouts > div:not(.vin-loading) .vout-header > div > *:nth-child(2) {
+  text-align: right;
+  min-width: 100px;
+  margin-left: 3px;
+  word-break: break-all;
+}
+
+.transaction-box > .ins-and-outs > .vins > div:not(.vin-loading) > .vin-body,
+.transaction-box > .ins-and-outs > .vins > div:not(.vin-loading) .vout-body,
+.transaction-box > .ins-and-outs .vouts > div:not(.vin-loading) > .vin-body,
+.transaction-box > .ins-and-outs .vouts > div:not(.vin-loading) .vout-body {
+  word-wrap: break-word;
+  background-color: #15191e;
+  padding: 30px 24px;
+  border-radius: 0 0 5px 5px;
+}
+
+.transaction-box > .ins-and-outs > .vins > div:not(.vin-loading) > .vin-body > div,
+.transaction-box > .ins-and-outs > .vins > div:not(.vin-loading) .vout-body > div,
+.transaction-box > .ins-and-outs .vouts > div:not(.vin-loading) > .vin-body > div,
+.transaction-box > .ins-and-outs .vouts > div:not(.vin-loading) .vout-body > div {
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+}
+
+.transaction-box > .ins-and-outs > .vins > div:not(.vin-loading) > .vin-body > div > *,
+.transaction-box > .ins-and-outs > .vins > div:not(.vin-loading) .vout-body > div > *,
+.transaction-box > .ins-and-outs .vouts > div:not(.vin-loading) > .vin-body > div > *,
+.transaction-box > .ins-and-outs .vouts > div:not(.vin-loading) .vout-body > div > * {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.transaction-box > .ins-and-outs > .vins > div:not(.vin-loading) > .vin-body > div:not(:last-child),
+.transaction-box > .ins-and-outs > .vins > div:not(.vin-loading) .vout-body > div:not(:last-child),
+.transaction-box > .ins-and-outs .vouts > div:not(.vin-loading) > .vin-body > div:not(:last-child),
+.transaction-box > .ins-and-outs .vouts > div:not(.vin-loading) .vout-body > div:not(:last-child) {
+  margin-bottom: 12px;
+}
+
+.transaction-box > .ins-and-outs > .vins > div:not(.vin-loading) > .vin-body > div > div,
+.transaction-box > .ins-and-outs > .vins > div:not(.vin-loading) .vout-body > div > div,
+.transaction-box > .ins-and-outs .vouts > div:not(.vin-loading) > .vin-body > div > div,
+.transaction-box > .ins-and-outs .vouts > div:not(.vin-loading) .vout-body > div > div {
+  vertical-align: text-top;
+}
+
+.transaction-box > .ins-and-outs > .vins > div:not(.vin-loading) > .vin-body > div > div:nth-child(1),
+.transaction-box > .ins-and-outs > .vins > div:not(.vin-loading) .vout-body > div > div:nth-child(1),
+.transaction-box > .ins-and-outs .vouts > div:not(.vin-loading) > .vin-body > div > div:nth-child(1),
+.transaction-box > .ins-and-outs .vouts > div:not(.vin-loading) .vout-body > div > div:nth-child(1) {
+  text-transform: uppercase;
+  color: #78838e;
+  font-weight: 600;
+}
+
+.transaction-box > .ins-and-outs > .vins > div:not(.vin-loading) > .vin-body > div > div:nth-child(2),
+.transaction-box > .ins-and-outs > .vins > div:not(.vin-loading) .vout-body > div > div:nth-child(2),
+.transaction-box > .ins-and-outs .vouts > div:not(.vin-loading) > .vin-body > div > div:nth-child(2),
+.transaction-box > .ins-and-outs .vouts > div:not(.vin-loading) .vout-body > div > div:nth-child(2) {
+  line-height: initial;
+}
+
+.transaction-box > .ins-and-outs > div:nth-child(2) {
+  padding: 0 12px;
+}
+
+.transaction-box > .ins-and-outs > div:nth-child(2) > div {
+  height: 46px;
+}
+
+.transaction-box > .ins-and-outs > div:nth-child(2) > div > .helper {
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+}
+
+.transaction-box > .ins-and-outs > div:nth-child(2) > div img {
+  vertical-align: middle;
+  width: auto;
+}
+
+.transaction-box .ins-and-outs .direction-arrow {
+  display: block;
+  justify-self: center;
+  width: 32px;
+  height: 33px;
+}
+
+.ins-and-outs {
+  position: relative !important;
+}
+
+.transaction-box > .footer {
+  height: 2rem;
+}
+
+@media only screen and (max-width: 768px) {
+  .transaction-box .ins-and-outs {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .transaction-box .ins-and-outs .direction-arrow-container {
+    width: 100% !important;
+  }
+
+  .transaction-box .ins-and-outs .direction-arrow {
+    transform: rotate(90deg);
+  }
+
+  .transaction-box .ins-and-outs > * {
+    padding: 20px 0;
+  }
+
+  .transaction-box > .ins-and-outs > .vins > div:not(.vin-loading) > .vin-body > div > div:nth-child(1),
+  .transaction-box > .ins-and-outs > .vins > div:not(.vin-loading) .vout-body > div > div:nth-child(1),
+  .transaction-box > .ins-and-outs .vouts > div:not(.vin-loading) > .vin-body > div > div:nth-child(1),
+  .transaction-box > .ins-and-outs .vouts > div:not(.vin-loading) .vout-body > div > div:nth-child(1) {
+    text-transform: lowercase;
+  }
+
+  .transaction-box > .ins-and-outs > div:nth-child(2) {
+    padding: 0 !important;
+  }
+
+  .transaction-box .ins-and-outs .direction-arrow {
+    display: flex;
+    justify-self: center;
+  }
+
+  .ins-and-outs {
+    position: relative !important;
+  }
+
+  .ins-and-outs_spacer {
+    height: 20px;
+    width: 10px;
+  }
 }
