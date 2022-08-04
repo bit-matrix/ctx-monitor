@@ -74,6 +74,7 @@
 
 .transaction-box:not(:first-of-type) {
   margin-top: 24px;
+  padding-top: 1rem;
 }
 
 .transaction-box {
@@ -229,6 +230,13 @@
 .transaction-box > .ins-and-outs > .vins > div:not(.vin-loading) .vout-header,
 .transaction-box > .ins-and-outs .vouts > div:not(.vin-loading) > .vin-header,
 .transaction-box > .ins-and-outs .vouts > div:not(.vin-loading) .vout-header {
+  padding: 12px 24px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-height: 46px;
+}
+
+.vout-header {
   padding: 12px 24px;
   overflow: hidden;
   text-overflow: ellipsis;
