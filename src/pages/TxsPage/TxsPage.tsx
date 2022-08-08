@@ -1,9 +1,12 @@
 import { TXS } from "../../app/ROUTE";
 import { Tx } from "../../components/Tx/Tx";
-import { data } from "../../mockData/mockdata";
 import "./TxsPage.scss";
 
-export const TxsPage = () => {
+type Props = {
+  txs?: any[];
+};
+
+export const TxsPage: React.FC<Props> = ({ txs }) => {
   document.title = TXS.TITLE;
 
   return (
@@ -12,7 +15,7 @@ export const TxsPage = () => {
       <div className="transactionsTableRow header">
         <div className="transactionsTableCell">Transaction ID</div>
       </div>
-      {data.map((d) => (
+      {txs?.map((d: any) => (
         <Tx key={d.commitmentData.transaction.txid} data={d} />
       ))}
     </div>
