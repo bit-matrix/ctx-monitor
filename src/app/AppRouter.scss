@@ -1,0 +1,18 @@
+.appLoading {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translateY(12rem);
+}
+
+.appContent {
+  width: 100%;
+
+  .errorContent {
+    text-align: center;
+    font-size: 2rem;
+    transform: translateY(12rem);
+  }
+}
