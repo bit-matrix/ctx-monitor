@@ -2,10 +2,13 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { TX_DETAIL } from "../../app/ROUTE";
 import { Loading } from "../../components/Loading/Loading";
-import { data as mockData } from "../../mockData/mockdata";
 import "./TxDetailPage.scss";
 
-export const TxDetailPage = () => {
+type Props = {
+  txs?: any[];
+};
+
+export const TxDetailPage: React.FC<Props> = ({ txs }) => {
   const [loading, setLoading] = useState<boolean>(true);
   const [data, setData] = useState<any>();
 
@@ -15,14 +18,14 @@ export const TxDetailPage = () => {
 
   useEffect(() => {
     const timeOut = setTimeout(() => {
-      const dt = mockData.find((m) => m.commitmentData.transaction.txid === id);
+      const dt = txs?.find((m) => m.commitmentData.transaction.txid === id);
       setData(dt);
       setLoading(false);
     }, 2000);
     return () => {
       clearTimeout(timeOut);
     };
-  }, [id]);
+  }, [id, txs]);
 
   if (loading) {
     return (
@@ -121,7 +124,7 @@ export const TxDetailPage = () => {
                 <div className="vout-header-container">Inputs</div>
               </div>
               {data?.commitmentData.inputs.map((inp: any, i: number) => (
-                <div key={`${data.txid}:vin:${i}`} className="vin">
+                <div key={`${inp.txid}:vin:${i}`} className="vin">
                   <div className="vin-body">
                     <div className="vin-body-row">
                       <div>tx id</div>
@@ -145,7 +148,7 @@ export const TxDetailPage = () => {
                 <div className="vout-header-container">Outputs</div>
               </div>
               {data?.commitmentData.outputs.map((out: any, q: number) => (
-                <div key={`${data.txid}:vout:${q}`} className="vout">
+                <div key={`${out.txid}:vout:${q}`} className="vout">
                   <div className="vout-body">
                     {out.value && (
                       <div className="vout-body-row">
@@ -209,7 +212,7 @@ export const TxDetailPage = () => {
           <div className="ins-and-outs">
             <div className="vins">
               {data?.commitmentData.transaction.vin.map((txIn: any, i: number) => (
-                <div key={`${data.txid}:vin:${i}`} className="vin">
+                <div key={`${txIn.txid}:vin:${i}`} className="vin">
                   <div className="vin-header">
                     <div className="vin-header-container">
                       {txIn.is_coinbase ? (
@@ -262,7 +265,7 @@ export const TxDetailPage = () => {
             </div>
             <div className="vouts">
               {data?.commitmentData.transaction.vout.map((txOut: any, q: number) => (
-                <div key={`${data.txid}:vout:${q}`} className="vout">
+                <div key={`${txOut.txid}:vout:${q}`} className="vout">
                   <div className="vout-header">
                     <div className="vout-header-container">
                       <span>OP_RETURN</span>
