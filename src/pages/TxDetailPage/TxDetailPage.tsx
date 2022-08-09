@@ -9,10 +9,23 @@ type Props = {
 
 export const TxDetailPage: React.FC<Props> = ({ txs }) => {
   const [data, setData] = useState<any>();
+  const [copySuccess, setCopySuccess] = useState("");
 
   document.title = TX_DETAIL.TITLE;
 
   const { id } = useParams<{ id: string }>();
+
+  const copyToClipBoard = async (copyMe: string) => {
+    try {
+      await navigator.clipboard.writeText(copyMe);
+      setCopySuccess("Copied!");
+      setTimeout(() => {
+        setCopySuccess("");
+      }, 1000);
+    } catch (err) {
+      setCopySuccess("Failed to copy!");
+    }
+  };
 
   useEffect(() => {
     const dt = txs?.find((m) => m.commitmentData.transaction.txid === id);
@@ -28,7 +41,9 @@ export const TxDetailPage: React.FC<Props> = ({ txs }) => {
             <div className="tx-hash">
               <span>{data?.commitmentData.transaction.txid}</span>
               <div className="code-button">
-                <div className="code-button-btn" role="button" onClick={() => navigator.clipboard.writeText(data?.commitmentData.transaction.txid)}></div>
+                <div className="code-button-btn" role="button" onClick={() => copyToClipBoard(data?.commitmentData.transaction.txid)}>
+                  {copySuccess && <span className="copied">{copySuccess}</span>}
+                </div>
               </div>
             </div>
           </div>
