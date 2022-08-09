@@ -19,9 +19,9 @@ export const PageLayout: React.FC<Props> = ({ children }) => {
             <Home />
           </button>
         </div>
-        <div className="searchBar">
+        {/* <div className="searchBar">
           <input className="searchBarInput" type="search" name="q" placeholder="Search" autoFocus required autoComplete="off" aria-label="Search" />
-        </div>
+        </div> */}
       </div>
       <div className="container">{children}</div>
     </div>
