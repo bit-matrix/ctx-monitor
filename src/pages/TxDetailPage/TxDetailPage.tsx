@@ -44,7 +44,7 @@ export const TxDetailPage: React.FC<Props> = ({ txs }) => {
             <div className="tx-hash">
               <span>{data?.commitmentData.transaction.txid}</span>
               <div className="code-button">
-                <div className="code-button-btn" role="button" data-clipboard-copy={data?.commitmentData.transaction.txid}></div>
+                <div className="code-button-btn" role="button" onClick={() => navigator.clipboard.writeText(data?.commitmentData.transaction.txid)}></div>
               </div>
             </div>
           </div>
