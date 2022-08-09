@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { TX_DETAIL } from "../../app/ROUTE";
-import { Loading } from "../../components/Loading/Loading";
 import "./TxDetailPage.scss";
 
 type Props = {
@@ -9,7 +8,6 @@ type Props = {
 };
 
 export const TxDetailPage: React.FC<Props> = ({ txs }) => {
-  const [loading, setLoading] = useState<boolean>(true);
   const [data, setData] = useState<any>();
 
   document.title = TX_DETAIL.TITLE;
@@ -17,23 +15,9 @@ export const TxDetailPage: React.FC<Props> = ({ txs }) => {
   const { id } = useParams<{ id: string }>();
 
   useEffect(() => {
-    const timeOut = setTimeout(() => {
-      const dt = txs?.find((m) => m.commitmentData.transaction.txid === id);
-      setData(dt);
-      setLoading(false);
-    }, 500);
-    return () => {
-      clearTimeout(timeOut);
-    };
+    const dt = txs?.find((m) => m.commitmentData.transaction.txid === id);
+    setData(dt);
   }, [id, txs]);
-
-  if (loading) {
-    return (
-      <div className="txDetailLoading">
-        <Loading width="2rem" height="2rem" />
-      </div>
-    );
-  }
 
   return (
     <div>
@@ -150,11 +134,13 @@ export const TxDetailPage: React.FC<Props> = ({ txs }) => {
               {data?.commitmentData.outputs.map((out: any, q: number) => (
                 <div key={`${out.txid}:vout:${q}`} className="vout">
                   <div className="vout-body">
-                    {out.value && (
+                    {out.value ? (
                       <div className="vout-body-row">
                         <div>Value</div>
                         <div>{out.value}</div>
                       </div>
+                    ) : (
+                      <div />
                     )}
                     {out.asset && (
                       <div className="vout-body-row">
