@@ -52,48 +52,48 @@ export const TxDetailPage: React.FC<Props> = ({ txs }) => {
       <div className="container">
         <div className="statsTable">
           <div className="tableItem">
-            <div>Pool Id</div>
-            <div>{data?.commitmentData.poolId}</div>
+            <div className="tableItemLeft">Pool Id</div>
+            <div className="tableItemRight">{data?.commitmentData.poolId}</div>
           </div>
           <div className="tableItem">
-            <div>Method Call</div>
-            <div>{data?.commitmentData.methodCall}</div>
+            <div className="tableItemLeft">Method Call</div>
+            <div className="tableItemRight">{data?.commitmentData.methodCall}</div>
           </div>
           <div className="tableItem">
-            <div>Slippage Tolerance</div>
-            <div>{data?.commitmentData.slippageTolerance}</div>
+            <div className="tableItemLeft">Slippage Tolerance</div>
+            <div className="tableItemRight">{data?.commitmentData.slippageTolerance}</div>
           </div>
           <div className="tableItem">
-            <div>Ordering Fee</div>
-            <div>{data?.commitmentData.orderingFee}</div>
+            <div className="tableItemLeft">Ordering Fee</div>
+            <div className="tableItemRight">{data?.commitmentData.orderingFee}</div>
           </div>
           <div className="tableItem">
-            <div>Size</div>
-            <div>{data?.commitmentData.transaction.size}</div>
+            <div className="tableItemLeft">Size</div>
+            <div className="tableItemRight">{data?.commitmentData.transaction.size}</div>
           </div>
           <div className="tableItem">
-            <div>Weight</div>
-            <div>{data?.commitmentData.transaction.weight}</div>
+            <div className="tableItemLeft">Weight</div>
+            <div className="tableItemRight">{data?.commitmentData.transaction.weight}</div>
           </div>
           <div className="tableItem">
-            <div>Fee</div>
-            <div>{data?.commitmentData.transaction.fee}</div>
+            <div className="tableItemLeft">Fee</div>
+            <div className="tableItemRight">{data?.commitmentData.transaction.fee}</div>
           </div>
           <div className="tableItem">
-            <div>Tap Tweaked Result Prefix</div>
-            <div>{data?.commitmentData.tapTweakedResultPrefix}</div>
+            <div className="tableItemLeft">Tap Tweaked Result Prefix</div>
+            <div className="tableItemRight">{data?.commitmentData.tapTweakedResultPrefix}</div>
           </div>
           <div className="tableItem">
-            <div>Output Count</div>
-            <div>{data?.commitmentData.outputCount.number}</div>
+            <div className="tableItemLeft">Output Count</div>
+            <div className="tableItemRight">{data?.commitmentData.outputCount.number}</div>
           </div>
           <div className="tableItem">
-            <div>Input Count</div>
-            <div>{data?.commitmentData.inputCount.number}</div>
+            <div className="tableItemLeft">Input Count</div>
+            <div className="tableItemRight">{data?.commitmentData.inputCount.number}</div>
           </div>
           <div className="tableItem">
-            <div>nsequenceValue</div>
-            <div>{data?.commitmentData.nsequenceValue}</div>
+            <div className="tableItemLeft">nsequenceValue</div>
+            <div className="tableItemRight">{data?.commitmentData.nsequenceValue}</div>
           </div>
           {/* <div className="tableItem">
             <div>Status</div>

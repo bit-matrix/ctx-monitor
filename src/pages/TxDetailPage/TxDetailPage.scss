@@ -50,9 +50,15 @@
 }
 
 .statsTable > div {
-  display: table;
-  table-layout: fixed;
+  // display: table;
+  // table-layout: fixed;
+  // width: 100%;
+
+  display: flex;
+  justify-content: space-between;
+  /* table-layout: fixed; */
   width: 100%;
+  align-items: center;
 }
 
 .statsTable > div > * {
@@ -80,8 +86,16 @@
   margin-bottom: 0;
 }
 
-.tableItem {
-  padding: 0 1.5rem;
+// .tableItem {
+//   padding: 0 1.5rem;
+// }
+
+.tableItemLeft {
+  padding-left: 1.5rem;
+}
+
+.tableItemRight {
+  padding-right: 1.5rem;
 }
 
 .transaction-box:not(:first-of-type) {
