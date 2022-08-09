@@ -41,7 +41,7 @@
   max-width: 100%;
   cursor: pointer !important;
   background-color: transparent;
-  width: 30rem !important;
+  width: 48rem !important;
   height: 3rem;
   outline: none;
   border: none;
@@ -72,9 +72,26 @@
 input[type="search" i] {
   appearance: auto;
   box-sizing: border-box;
-  padding: 1rem 2rem !important;
+  padding: 1px 0.5rem !important;
+  font-size: 1rem;
 }
 
-:focus-visible {
-  outline: -webkit-focus-ring-color auto 1rem !important;
+input[type="search" i]::-webkit-search-cancel-button {
+  appearance: auto;
+  height: 5rem;
+  width: 5rem;
+  display: block;
+  cursor: default;
+  margin-inline-start: 1px;
+  margin-right: 3px;
+  opacity: 0;
+  pointer-events: none;
+  -webkit-user-modify: read-only !important;
+  user-select: none !important;
+  flex: 0 0 auto;
+}
+
+input[type="search" i]:enabled:read-write:-webkit-any(:focus, :hover)::-webkit-search-cancel-button {
+  opacity: 1;
+  pointer-events: auto;
 }
