@@ -203,10 +203,10 @@ export const TxDetailPage: React.FC<Props> = ({ txs }) => {
               </a>
             </div>
             <div className="details-btn" data-toggle-tx={data?.txid}>
-              <div role="button" tabIndex={0}>
+              {/* <div role="button" tabIndex={0}>
                 <div>Details</div>
                 <div className="plus"></div>
-              </div>
+              </div> */}
             </div>
           </div>
           <div className="ins-and-outs">
