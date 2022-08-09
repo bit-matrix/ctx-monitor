@@ -121,7 +121,7 @@ export const TxDetailPage: React.FC<Props> = ({ txs }) => {
           <div className="ins-and-outs">
             <div className="vins">
               <div className="vout-header">
-                <div className="vout-header-container">Inputs</div>
+                <div className="vout-header-container">INPUTS</div>
               </div>
               {data?.commitmentData.inputs.map((inp: any, i: number) => (
                 <div key={`${inp.txid}:vin:${i}`} className="vin">
@@ -145,7 +145,7 @@ export const TxDetailPage: React.FC<Props> = ({ txs }) => {
             </div>
             <div className="vouts">
               <div className="vout-header">
-                <div className="vout-header-container">Outputs</div>
+                <div className="vout-header-container">OUTPUTS</div>
               </div>
               {data?.commitmentData.outputs.map((out: any, q: number) => (
                 <div key={`${out.txid}:vout:${q}`} className="vout">
