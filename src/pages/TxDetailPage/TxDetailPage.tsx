@@ -190,17 +190,6 @@ export const TxDetailPage: React.FC<Props> = ({ txs }) => {
         </div>
 
         <div className="transaction-box" id="transaction-box">
-          <div className="header">
-            {/* <div className="txn">
-              <div>{data?.commitmentData.transaction.txid}</div>
-            </div> */}
-            <div className="details-btn" data-toggle-tx={data?.txid}>
-              {/* <div role="button" tabIndex={0}>
-                <div>Details</div>
-                <div className="plus"></div>
-              </div> */}
-            </div>
-          </div>
           <div className="ins-and-outs">
             <div className="vins">
               {data?.commitmentData.transaction.vin.map((txIn: any, i: number) => (
