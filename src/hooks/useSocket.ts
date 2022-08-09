@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from "react";
 import io from "socket.io-client";
 
-export const SOCKET_SERVER_URL = "//127.0.0.1:9901/";
+export const SOCKET_SERVER_URL = "https://api.basebitmatrix.com/";
 
 export const useSocket = () => {
   const [isConnected, setIsConnected] = useState<boolean>(false);
