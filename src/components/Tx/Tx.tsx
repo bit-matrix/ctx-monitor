@@ -22,6 +22,9 @@ export const Tx: React.FC<Props> = ({ data }) => {
         <div className="transactionsTableCell highlightedText" data-label="TXID">
           {data.commitmentData.transaction.txid}
         </div>
+        <div className="transactionsTableCell highlightedText" data-label="POOLID">
+          {data.commitmentData.poolId}
+        </div>
       </a>
     </div>
   );

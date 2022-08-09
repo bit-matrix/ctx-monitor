@@ -14,6 +14,7 @@ export const TxsPage: React.FC<Props> = ({ txs }) => {
       <h3 className="transactionsTableTitle">Commitment Transactions</h3>
       <div className="transactionsTableRow header">
         <div className="transactionsTableCell">Transaction ID</div>
+        <div className="transactionsTableCell">Pool ID</div>
       </div>
       {txs?.map((d: any) => (
         <Tx key={d.commitmentData.transaction.txid} data={d} />
