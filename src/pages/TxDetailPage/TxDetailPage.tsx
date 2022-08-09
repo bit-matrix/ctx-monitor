@@ -191,17 +191,9 @@ export const TxDetailPage: React.FC<Props> = ({ txs }) => {
 
         <div className="transaction-box" id="transaction-box">
           <div className="header">
-            <div className="txn">
-              <a
-                href="#/"
-                role="button"
-                onClick={(e) => {
-                  e.preventDefault();
-                }}
-              >
-                {data?.commitmentData.transaction.txid}
-              </a>
-            </div>
+            {/* <div className="txn">
+              <div>{data?.commitmentData.transaction.txid}</div>
+            </div> */}
             <div className="details-btn" data-toggle-tx={data?.txid}>
               {/* <div role="button" tabIndex={0}>
                 <div>Details</div>
@@ -220,15 +212,7 @@ export const TxDetailPage: React.FC<Props> = ({ txs }) => {
                       ) : (
                         <>
                           <span>
-                            <a
-                              href="#/"
-                              role="button"
-                              onClick={(e) => {
-                                e.preventDefault();
-                              }}
-                            >
-                              {txIn.txid}
-                            </a>
+                            <div className="green">{txIn.txid}</div>
                           </span>
                           <span className="amount">Confidential</span>
                         </>
@@ -272,15 +256,7 @@ export const TxDetailPage: React.FC<Props> = ({ txs }) => {
                       <span className="amount">
                         <span>
                           {txOut.value}
-                          <a
-                            href="/#"
-                            role="button"
-                            onClick={(e) => {
-                              e.preventDefault();
-                            }}
-                          >
-                            tL-BTC
-                          </a>
+                          <div>tL-BTC</div>
                         </span>
                       </span>
                     </div>
@@ -306,15 +282,7 @@ export const TxDetailPage: React.FC<Props> = ({ txs }) => {
                       <div className="vout-body-row">
                         <div>Asset ID</div>
                         <div className="mono">
-                          <a
-                            href="/#"
-                            role="button"
-                            onClick={(e) => {
-                              e.preventDefault();
-                            }}
-                          >
-                            {txOut.asset}
-                          </a>
+                          <div>{txOut.asset}</div>
                         </div>
                       </div>
                     )}
