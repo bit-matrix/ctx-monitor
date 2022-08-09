@@ -21,7 +21,7 @@ export const TxDetailPage: React.FC<Props> = ({ txs }) => {
       const dt = txs?.find((m) => m.commitmentData.transaction.txid === id);
       setData(dt);
       setLoading(false);
-    }, 2000);
+    }, 500);
     return () => {
       clearTimeout(timeOut);
     };
@@ -86,11 +86,11 @@ export const TxDetailPage: React.FC<Props> = ({ txs }) => {
           </div>
           <div className="tableItem">
             <div>Output Count</div>
-            <div>{data?.commitmentData.outputCount}</div>
+            <div>{data?.commitmentData.outputCount.number}</div>
           </div>
           <div className="tableItem">
             <div>Input Count</div>
-            <div>{data?.commitmentData.inputCount}</div>
+            <div>{data?.commitmentData.inputCount.number}</div>
           </div>
           <div className="tableItem">
             <div>nsequenceValue</div>
