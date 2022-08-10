@@ -99,6 +99,7 @@
 
   .transactionsTableRow {
     display: block;
+    padding-left: 0;
   }
 
   div.transactionsTableCell {
@@ -110,7 +111,7 @@
     text-align: right;
   }
 
-  .transactionsTable .transactionsTableRow > div:nth-child(1) {
+  .transactionsTable .transactionsTableRow > div {
     padding-left: 0px;
   }
 
@@ -127,6 +128,10 @@
     content: attr(data-label);
     text-align: left;
     width: auto;
+  }
+
+  .transactionsTable .transactionsTableRow.transactionData > * {
+    padding-left: 0;
   }
 }
 
