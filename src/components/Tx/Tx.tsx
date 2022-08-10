@@ -20,10 +20,13 @@ export const Tx: React.FC<Props> = ({ data }) => {
     <div className="transactionsTableLinkRow">
       <a className="transactionsTableRow transactionData" onClick={() => onClick(data.commitmentData.transaction.txid)}>
         <div className="transactionsTableCell highlightedText" data-label="TXID">
-          {data.commitmentData.transaction.txid}
+          <span>{data.commitmentData.transaction.txid}</span>
         </div>
         <div className="transactionsTableCell highlightedText" data-label="POOLID">
           {data.commitmentData.poolId}
+        </div>
+        <div className="transactionsTableCell highlightedText" data-label="POOLTXID">
+          {data.poolTxInfo.txId}
         </div>
       </a>
     </div>
