@@ -9,6 +9,8 @@ export const useSocket = () => {
   const [loading, setLoading] = useState<boolean>(true);
 
   const onData = useCallback((data: any) => {
+    console.log(data);
+
     setData(data);
     setLoading(false);
   }, []);

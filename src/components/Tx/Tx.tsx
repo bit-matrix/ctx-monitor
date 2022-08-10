@@ -26,7 +26,7 @@ export const Tx: React.FC<Props> = ({ data }) => {
           {data.commitmentData.poolId}
         </div>
         <div className="transactionsTableCell highlightedText" data-label="POOLTXID">
-          {data.poolTxInfo.txId}
+          {data.poolTxInfo?.txId || ""}
         </div>
       </a>
     </div>
