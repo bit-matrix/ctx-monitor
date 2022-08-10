@@ -32,7 +32,7 @@ const AppRouter = () => {
       <PageLayout searchText={(text: string) => setSearch(text)}>
         {loading ? (
           <div className="appLoading">
-            <Loading width="2.5rem" height="2.5rem" />
+            <Loading width="2rem" height="2rem" />
           </div>
         ) : (
           <div className="appContent">
