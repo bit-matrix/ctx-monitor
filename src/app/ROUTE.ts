@@ -6,10 +6,9 @@ export type RouteType = {
 //home route
 export const HOME: RouteType = { PATH: "/", TITLE: "Home" };
 
-// base route
+// base routes
 export const TXS: RouteType = { PATH: "/txs", TITLE: "Transactions" };
-
-// detail route
+export const TXS_HISTORY: RouteType = { PATH: "/txs-history", TITLE: "Transactions History" };
 export const TX_DETAIL: RouteType = { PATH: "/tx", TITLE: "Transaction Detail" };
 
 // not found
