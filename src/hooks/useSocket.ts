@@ -5,14 +5,17 @@ export const SOCKET_SERVER_URL = "https://api.basebitmatrix.com/";
 
 export const useSocket = () => {
   const [isConnected, setIsConnected] = useState<boolean>(false);
-  const [data, setData] = useState<any>();
-  const [loading, setLoading] = useState<boolean>(true);
+  const [ctxData, setCtxData] = useState<any>();
+  const [ctxHistory, setCtxHistory] = useState<any>();
+  const [ctxLoading, setCtxLoading] = useState<boolean>(true);
 
-  const onData = useCallback((data: any) => {
-    console.log(data);
+  const onCtxData = useCallback((data: any) => {
+    setCtxData(data);
+    setCtxLoading(false);
+  }, []);
 
-    setData(data);
-    setLoading(false);
+  const onCtxHistory = useCallback((data: any) => {
+    setCtxHistory(data);
   }, []);
 
   useEffect(() => {
@@ -29,7 +32,11 @@ export const useSocket = () => {
     });
 
     socket.on("redis-values", (data) => {
-      if (data) onData(data);
+      if (data) onCtxData(data);
+    });
+
+    socket.on("ctxHistory", (data) => {
+      if (data) onCtxHistory(data);
     });
 
     return () => {
@@ -39,11 +46,12 @@ export const useSocket = () => {
       setIsConnected(false);
       console.log("cleanup");
     };
-  }, [onData]);
+  }, [onCtxData, onCtxHistory]);
 
   return {
     isConnected,
-    loading,
-    data,
+    ctxLoading,
+    ctxData,
+    ctxHistory,
   };
 };

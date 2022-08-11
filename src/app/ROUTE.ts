@@ -1,16 +1,17 @@
-export type RouteType = {
-  PATH: string;
-  TITLE: string;
-};
+enum ROUTE_PATH {
+  HOME = "/",
+  TXS = "/txs",
+  TXS_HISTORY = "/history",
+  TX_DETAIL = "/tx",
+  NOT_FOUND = "*",
+}
 
-//home route
-export const HOME: RouteType = { PATH: "/", TITLE: "Home" };
+enum ROUTE_TITLE {
+  HOME = "Home",
+  TXS = "Transactions",
+  TXS_HISTORY = "Transactions History",
+  TX_DETAIL = "Transaction Detail",
+  NOT_FOUND = "Page Not Found :(",
+}
 
-// base route
-export const TXS: RouteType = { PATH: "/txs", TITLE: "Transactions" };
-
-// detail route
-export const TX_DETAIL: RouteType = { PATH: "/tx", TITLE: "Transaction Detail" };
-
-// not found
-export const NOT_FOUND: RouteType = { PATH: "*", TITLE: "Page Not Found :(" };
+export { ROUTE_PATH, ROUTE_TITLE };

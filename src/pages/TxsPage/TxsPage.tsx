@@ -1,5 +1,6 @@
-import { TXS } from "../../app/ROUTE";
-import { Tx } from "../../components/Tx/Tx";
+/* eslint-disable jsx-a11y/anchor-is-valid */
+import { useNavigate } from "react-router-dom";
+import { ROUTE_PATH, ROUTE_TITLE } from "../../app/ROUTE";
 import "./TxsPage.scss";
 
 type Props = {
@@ -7,7 +8,13 @@ type Props = {
 };
 
 export const TxsPage: React.FC<Props> = ({ txs }) => {
-  document.title = TXS.TITLE;
+  document.title = ROUTE_TITLE.TXS;
+
+  const navigate = useNavigate();
+
+  const onClick = (txId: string) => {
+    navigate(`${ROUTE_PATH.TX_DETAIL}/${txId}`);
+  };
 
   return (
     <div className="transactionsTable">
@@ -17,8 +24,20 @@ export const TxsPage: React.FC<Props> = ({ txs }) => {
         <div className="transactionsTableCell">Pool ID</div>
         <div className="transactionsTableCell">Pool Tx ID</div>
       </div>
-      {txs?.map((d: any) => (
-        <Tx key={d.commitmentData.transaction.txid} data={d} />
+      {txs?.map((data: any, i: number) => (
+        <div key={i} className="transactionsTableLinkRow">
+          <a className="transactionsTableRow transactionData" onClick={() => onClick(data.commitmentData.transaction.txid)}>
+            <div className="transactionsTableCell highlightedText" data-label="TXID">
+              <span>{data.commitmentData.transaction.txid}</span>
+            </div>
+            <div className="transactionsTableCell highlightedText" data-label="POOLID">
+              {data.commitmentData.poolId}
+            </div>
+            <div className="transactionsTableCell highlightedText" data-label="POOLTXID">
+              {data.poolTxInfo?.txId || ""}
+            </div>
+          </a>
+        </div>
       ))}
     </div>
   );

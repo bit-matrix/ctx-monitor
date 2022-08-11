@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { TX_DETAIL } from "../../app/ROUTE";
+import { ROUTE_TITLE } from "../../app/ROUTE";
 import "./TxDetailPage.scss";
 
 type Props = {
@@ -11,7 +11,7 @@ export const TxDetailPage: React.FC<Props> = ({ txs }) => {
   const [data, setData] = useState<any>();
   const [copySuccess, setCopySuccess] = useState("");
 
-  document.title = TX_DETAIL.TITLE;
+  document.title = ROUTE_TITLE.TX_DETAIL;
 
   const { id } = useParams<{ id: string }>();
 

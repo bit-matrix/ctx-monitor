@@ -1,4 +1,4 @@
-.transactionsTable {
+.txsHistoryTable {
   padding: 1.875rem 0;
   border-radius: 0.5rem;
   box-shadow: 0 20px 32px 0 rgba(0, 0, 0, 0.08);
@@ -7,56 +7,52 @@
   padding: 1.5rem;
 }
 
-// .transactionsTableTitle {
-//   padding: 0 1.25rem;
-// }
-
-.transactionsTableRow {
+.txsHistoryTableRow {
   display: table;
   table-layout: fixed;
   width: 100%;
 }
 
-.transactionsTableLinkRow {
+.txsHistoryTableLinkRow {
   cursor: pointer;
 }
 
-.transactionsTableRow > * {
+.txsHistoryTableRow > * {
   display: table-cell;
   vertical-align: middle;
 }
 
-.transactionsTable .transactionsTableRow.header,
-.transactionsTable .transactionsTableRow.transactionData {
+.txsHistoryTable .txsHistoryTableRow.header,
+.txsHistoryTable .txsHistoryTableRow.transactionData {
   height: 3.25rem;
 }
 
-.transactionsTable .transactionsTableRow.header > *,
-.transactionsTable .transactionsTableRow.transactionData > * {
+.txsHistoryTable .txsHistoryTableRow.header > *,
+.txsHistoryTable .txsHistoryTableRow.transactionData > * {
   font-size: 1rem;
   padding: 1rem;
 }
 
-.transactionsTable .transactionsTableRow.header > * {
+.txsHistoryTable .txsHistoryTableRow.header > * {
   color: #78838e;
   font-weight: 600;
 }
 
-.transactionsTable .transactionsTableRow.transactionData {
+.txsHistoryTable .txsHistoryTableRow.transactionData {
   border-top: 1px #22242c solid;
   text-decoration: none;
   border-radius: 0.25rem;
 }
 
-.transactionsTable .transactionsTableRow.transactionData:not(.loading):hover {
+.txsHistoryTable .txsHistoryTableRow.transactionData:not(.loading):hover {
   background-color: rgba(255, 255, 255, 0.05);
 }
 
-.transactionsTable .transactionsTableRow.transactionData > * {
+.txsHistoryTable .txsHistoryTableRow.transactionData > * {
   font-size: 1rem;
 }
 
-.transactionsTable .transactionsTableRow.loading img {
+.txsHistoryTable .txsHistoryTableRow.loading img {
   display: block;
   margin: auto;
   height: 2.8125rem;
@@ -64,7 +60,7 @@
   padding: 0.1875 0;
 }
 
-.transactionsTableRow {
+.txsHistoryTableRow {
   color: #fff !important;
 }
 
@@ -75,12 +71,27 @@
   text-overflow: ellipsis;
 }
 
+.txsHistoryTable .txsHistoryTableRow > div:nth-child(1) {
+  width: 30%;
+}
+.txsHistoryTable .txsHistoryTableRow > div:nth-child(2) {
+  width: 30%;
+}
+.txsHistoryTable .txsHistoryTableRow > div:nth-child(3) {
+  width: 8%;
+  text-align: center;
+}
+.txsHistoryTable .txsHistoryTableRow > div:nth-child(4) {
+  width: 8%;
+  text-align: center;
+}
+
 @media only screen and (max-width: 1200px) {
-  div.transactionsTableRow.header {
+  div.txsHistoryTableRow.header {
     display: none !important;
   }
 
-  .transactionsTableRow {
+  .txsHistoryTableRow {
     margin: 0 0 1rem 0;
     display: flex !important;
     flex-direction: column !important;
@@ -96,7 +107,7 @@
     background: #22242c;
   }
 
-  .transactionsTable .transactionsTableRow.block-data > * {
+  .txsHistoryTable .txsHistoryTableRow.block-data > * {
     border: none;
     position: relative;
     padding-left: 0 !important;
@@ -108,12 +119,12 @@
     text-align: right;
   }
 
-  .transactionsTableRow {
+  .txsHistoryTableRow {
     display: block;
     padding-left: 0;
   }
 
-  div.transactionsTableCell {
+  div.txsHistoryTableCell {
     display: flex !important;
     justify-content: space-between;
     width: 100% !important;
@@ -122,11 +133,11 @@
     text-align: right;
   }
 
-  .transactionsTable .transactionsTableRow > div {
+  .txsHistoryTable .txsHistoryTableRow > div {
     padding-left: 0px;
   }
 
-  div.transactionsTableCell:before {
+  div.txsHistoryTableCell:before {
     width: 45%;
     padding-right: 0.625rem;
     font-weight: 600;
@@ -135,23 +146,13 @@
     word-break: keep-all;
   }
 
-  div.transactionsTableCell:before {
+  div.txsHistoryTableCell:before {
     content: attr(data-label);
     text-align: left;
     width: auto;
   }
 
-  .transactionsTable .transactionsTableRow.transactionData > * {
+  .txsHistoryTable .txsHistoryTableRow.transactionData > * {
     padding-left: 0;
   }
 }
-
-// .blocks-table .blocks-table-row,
-// .transactionsTable .transactionsTableRow {
-//   padding: 1.25rem 1.875rem;
-// }
-
-// .blocks-table .blocks-table-row,
-// .transactionsTable .transactionsTableRow {
-//   padding: 1.25rem;
-// }
