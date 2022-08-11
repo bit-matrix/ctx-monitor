@@ -45,8 +45,8 @@ const AppRouter = () => {
             {isConnected ? (
               <Routes>
                 <Route path={ROUTE_PATH.HOME} element={<TxsPage txs={filteredCtx} />} />
+                {/* <Route path={ROUTE_PATH.TXS} element={<TxsPage txs={filteredCtx} />} /> */}
                 <Route path={ROUTE_PATH.TXS_HISTORY} element={<TxsHistoryPage txs={filteredCtxHistory} />} />
-                <Route path={ROUTE_PATH.TXS} element={<TxsPage txs={filteredCtx} />} />
                 <Route path={`${ROUTE_PATH.TX_DETAIL}/:id`} element={<TxDetailPage txs={ctxData} />} />
                 <Route path={ROUTE_PATH.NOT_FOUND} element={<NotFoundPage />} />
               </Routes>
