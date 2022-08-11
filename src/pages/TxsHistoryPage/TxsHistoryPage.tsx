@@ -15,8 +15,8 @@ export const TxsHistoryPage: React.FC<Props> = ({ txs }) => {
         <div className="txsHistoryTableCell">Pool ID</div>
         <div className="txsHistoryTableCell">Transaction ID</div>
         <div className="txsHistoryTableCell">Method</div>
-        <div className="txsHistoryTableCell">isSuccess</div>
-        <div className="txsHistoryTableCell">failReasons</div>
+        <div className="txsHistoryTableCell">Success</div>
+        <div className="txsHistoryTableCell">Fail Reason</div>
       </div>
       {txs?.map((d: any, i: number) => (
         <div key={i} className="txsHistoryTableLinkRow">
@@ -30,10 +30,10 @@ export const TxsHistoryPage: React.FC<Props> = ({ txs }) => {
             <div className="txsHistoryTableCell highlightedText" data-label="METHOD">
               {d.val.method}
             </div>
-            <div className="txsHistoryTableCell highlightedText" data-label="ISSUCCESS">
+            <div className="txsHistoryTableCell highlightedText" data-label="SUCCESS">
               {d.val.isSuccess.toString()}
             </div>
-            <div className="txsHistoryTableCell highlightedText" data-label="FAILREASONS">
+            <div className="txsHistoryTableCell highlightedText" data-label="FAIL REASON">
               {d.val.failReasons}
             </div>
           </a>
