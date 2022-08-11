@@ -45,9 +45,9 @@ export const PageLayout: React.FC<Props> = ({ children, searchText }) => {
             <Home />
           </button>
           <a
-            className={`subNavItem ${(selectedTab === ROUTE_PATH.HOME || selectedTab === ROUTE_PATH.TXS) && "active"}`}
+            className={`subNavItem ${(selectedTab === ROUTE_PATH.HOME || selectedTab.startsWith(ROUTE_PATH.TX_DETAIL)) && "active"}`}
             onClick={() => {
-              navigate(ROUTE_PATH.TXS);
+              navigate(ROUTE_PATH.HOME);
             }}
           >
             Ctx Transactions
@@ -61,7 +61,7 @@ export const PageLayout: React.FC<Props> = ({ children, searchText }) => {
             Ctx History
           </a>
         </div>
-        {(location.pathname === ROUTE_PATH.TXS_HISTORY || location.pathname === ROUTE_PATH.HOME || location.pathname === ROUTE_PATH.TXS) && (
+        {(location.pathname === ROUTE_PATH.TXS_HISTORY || location.pathname === ROUTE_PATH.HOME) && (
           <div className="searchBar">
             <input
               className="searchBarInput"
