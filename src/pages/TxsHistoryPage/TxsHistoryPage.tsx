@@ -6,7 +6,7 @@ type Props = {
 };
 
 export const TxsHistoryPage: React.FC<Props> = ({ txs }) => {
-  document.title = ROUTE_TITLE.TXS;
+  document.title = ROUTE_TITLE.TXS_HISTORY;
 
   return (
     <div className="txsHistoryTable">
