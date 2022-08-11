@@ -5,6 +5,7 @@ import { PageLayout } from "../components/PageLayout/PageLayout";
 import { useSocket } from "../hooks/useSocket";
 import NotFoundPage from "../pages/NotFound/NotFound";
 import { TxDetailPage } from "../pages/TxDetailPage/TxDetailPage";
+import { TxsHistoryPage } from "../pages/TxsHistoryPage/TxsHistoryPage";
 import { TxsPage } from "../pages/TxsPage/TxsPage";
 import "./AppRouter.scss";
 
@@ -14,23 +15,23 @@ const AppRouter = () => {
   const [search, setSearch] = useState<string>();
   const [filteredData, setFilteredData] = useState<any>();
 
-  const { data, isConnected, loading } = useSocket();
+  const { ctxData, ctxHistory, isConnected, ctxLoading } = useSocket();
 
   useEffect(() => {
     let txs = [];
 
     if (!search || search === "") {
-      txs = data;
+      txs = ctxData;
     } else {
-      txs = data.filter((dt: any) => dt.commitmentData.transaction.txid === search);
+      txs = ctxData.filter((dt: any) => dt.commitmentData.transaction.txid === search);
     }
     setFilteredData(txs);
-  }, [data, search]);
+  }, [ctxData, search]);
 
   return (
     <BrowserRouter>
       <PageLayout searchText={(text: string) => setSearch(text)}>
-        {loading ? (
+        {ctxLoading ? (
           <div className="appLoading">
             <Loading width="2rem" height="2rem" />
           </div>
@@ -39,8 +40,9 @@ const AppRouter = () => {
             {isConnected ? (
               <Routes>
                 <Route path={ROUTE.HOME.PATH} element={<TxsPage txs={filteredData} />} />
+                <Route path={ROUTE.TXS_HISTORY.PATH} element={<TxsHistoryPage txs={ctxHistory} />} />
                 {/* <Route path={ROUTE.TXS.PATH} element={<TxsPage txs={filteredData} />} /> */}
-                <Route path={`${ROUTE.TX_DETAIL.PATH}/:id`} element={<TxDetailPage txs={data} />} />
+                <Route path={`${ROUTE.TX_DETAIL.PATH}/:id`} element={<TxDetailPage txs={ctxData} />} />
                 <Route path={ROUTE.NOT_FOUND.PATH} element={<NotFoundPage />} />
               </Routes>
             ) : (
