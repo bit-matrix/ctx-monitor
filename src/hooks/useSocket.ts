@@ -10,7 +10,6 @@ export const useSocket = () => {
   const [ctxLoading, setCtxLoading] = useState<boolean>(true);
 
   const onCtxData = useCallback((data: any) => {
-    console.log(data);
     setCtxData(data);
     setCtxLoading(false);
   }, []);

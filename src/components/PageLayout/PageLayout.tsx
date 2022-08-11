@@ -26,8 +26,6 @@ export const PageLayout: React.FC<Props> = ({ children, searchText }) => {
       //init tab selection
       setSelectedTab(location.pathname as ROUTE_PATH);
       unregisterCallback = navigation.listen((locationListener) => {
-        console.log(locationListener.location.pathname);
-
         setSelectedTab(locationListener.location.pathname as ROUTE_PATH);
       });
     }
