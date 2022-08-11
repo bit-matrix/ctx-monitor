@@ -50,7 +50,7 @@ export const PageLayout: React.FC<Props> = ({ children, searchText }) => {
               navigate(ROUTE_PATH.HOME);
             }}
           >
-            Ctx Transactions
+            Transactions
           </a>
           <a
             className={`subNavItem ${selectedTab === ROUTE_PATH.TXS_HISTORY && "active"}`}
@@ -58,7 +58,7 @@ export const PageLayout: React.FC<Props> = ({ children, searchText }) => {
               navigate(ROUTE_PATH.TXS_HISTORY);
             }}
           >
-            Ctx History
+            History
           </a>
         </div>
         {(location.pathname === ROUTE_PATH.TXS_HISTORY || location.pathname === ROUTE_PATH.HOME) && (
