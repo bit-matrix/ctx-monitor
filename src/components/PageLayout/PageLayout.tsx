@@ -1,7 +1,9 @@
-import React from "react";
+/* eslint-disable jsx-a11y/anchor-is-valid */
+import React, { useEffect, useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import { useLocation } from "react-router";
-import { HOME } from "../../app/ROUTE";
+import { useLocation, UNSAFE_NavigationContext } from "react-router";
+import { BrowserHistory } from "history";
+import { ROUTE_PATH } from "../../app/ROUTE";
 import Home from "../Svg/Icons/Home";
 import "./PageLayout.scss";
 
@@ -11,18 +13,55 @@ type Props = {
 };
 
 export const PageLayout: React.FC<Props> = ({ children, searchText }) => {
+  const [selectedTab, setSelectedTab] = useState<ROUTE_PATH>(ROUTE_PATH.HOME);
+
   const navigate = useNavigate();
   const location = useLocation();
+  const navigation = useContext(UNSAFE_NavigationContext).navigator as BrowserHistory;
+
+  useEffect(() => {
+    let unmounted = false;
+    let unregisterCallback: () => void;
+    if (!unmounted) {
+      //init tab selection
+      setSelectedTab(location.pathname as ROUTE_PATH);
+      unregisterCallback = navigation.listen((locationListener) => {
+        console.log(locationListener.location.pathname);
+
+        setSelectedTab(locationListener.location.pathname as ROUTE_PATH);
+      });
+    }
+    return () => {
+      unmounted = true;
+      if (unregisterCallback) unregisterCallback();
+    };
+  }, [location.pathname, navigation]);
 
   return (
     <div className="content">
       <div className="navbar">
-        <div className="appLogo">
-          <button className="navbarHomeButton" onClick={() => navigate(HOME.PATH)}>
+        <div className="subNav">
+          <button className="navbarHomeButton" onClick={() => navigate(ROUTE_PATH.HOME)}>
             <Home />
           </button>
+          <a
+            className={`subNavItem ${(selectedTab === ROUTE_PATH.HOME || selectedTab === ROUTE_PATH.TXS) && "active"}`}
+            onClick={() => {
+              navigate(ROUTE_PATH.TXS);
+            }}
+          >
+            Ctx Transactions
+          </a>
+          <a
+            className={`subNavItem ${selectedTab === ROUTE_PATH.TXS_HISTORY && "active"}`}
+            onClick={() => {
+              navigate(ROUTE_PATH.TXS_HISTORY);
+            }}
+          >
+            Ctx History
+          </a>
         </div>
-        {location.pathname === HOME.PATH && (
+        {(location.pathname === ROUTE_PATH.TXS_HISTORY || location.pathname === ROUTE_PATH.HOME || location.pathname === ROUTE_PATH.TXS) && (
           <div className="searchBar">
             <input
               className="searchBarInput"

@@ -20,6 +20,24 @@
   padding-right: 1.5rem !important;
 }
 
+.subNav {
+  display: flex;
+  width: 100%;
+}
+
+.subNav a {
+  margin-right: 3rem;
+  color: #ffffff;
+  font-weight: bold;
+  line-height: 2.5;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.active {
+  border-bottom: 2px solid;
+}
+
 .navbarHomeButton {
   background: transparent;
   width: 2.5rem;
@@ -29,11 +47,7 @@
   justify-content: center;
   border: none;
   cursor: pointer;
-}
-
-.appLogo {
-  display: flex;
-  width: 100%;
+  margin-right: 3rem;
 }
 
 .searchBar {
