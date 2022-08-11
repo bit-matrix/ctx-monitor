@@ -1,7 +1,7 @@
 enum ROUTE_PATH {
   HOME = "/",
   TXS = "/txs",
-  TXS_HISTORY = "/txs-history",
+  TXS_HISTORY = "/history",
   TX_DETAIL = "/tx",
   NOT_FOUND = "*",
 }
