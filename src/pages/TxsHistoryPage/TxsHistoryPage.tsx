@@ -1,4 +1,4 @@
-import { TXS } from "../../app/ROUTE";
+import { ROUTE_TITLE } from "../../app/ROUTE";
 import "./TxsHistoryPage.scss";
 
 type Props = {
@@ -6,7 +6,7 @@ type Props = {
 };
 
 export const TxsHistoryPage: React.FC<Props> = ({ txs }) => {
-  document.title = TXS.TITLE;
+  document.title = ROUTE_TITLE.TXS;
 
   return (
     <div className="txsHistoryTable">

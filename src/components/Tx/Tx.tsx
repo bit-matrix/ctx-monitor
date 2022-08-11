@@ -2,7 +2,7 @@
 
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { TX_DETAIL } from "../../app/ROUTE";
+import { ROUTE_PATH } from "../../app/ROUTE";
 import "./Tx.scss";
 
 type Props = {
@@ -13,7 +13,7 @@ export const Tx: React.FC<Props> = ({ data }) => {
   const navigate = useNavigate();
 
   const onClick = (txId: string) => {
-    navigate(`${TX_DETAIL.PATH}/${txId}`);
+    navigate(`${ROUTE_PATH.TX_DETAIL}/${txId}`);
   };
 
   return (

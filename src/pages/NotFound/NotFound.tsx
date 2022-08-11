@@ -1,11 +1,11 @@
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { NOT_FOUND } from "../../app/ROUTE";
+import { ROUTE_TITLE } from "../../app/ROUTE";
 
 const NotFoundPage = () => {
   const navigate = useNavigate();
 
-  document.title = NOT_FOUND.TITLE;
+  document.title = ROUTE_TITLE.NOT_FOUND;
 
   useEffect(() => {
     const timeOut = setTimeout(() => {
