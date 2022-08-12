@@ -2,6 +2,8 @@
 import React, { useEffect, useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { useLocation, UNSAFE_NavigationContext } from "react-router";
+import { ProgressBar } from "../ProgressBar/ProgressBar";
+import { calcPercentage } from "../../helper";
 import { BrowserHistory } from "history";
 import { ROUTE_PATH } from "../../app/ROUTE";
 import Home from "../Svg/Icons/Home";
@@ -10,6 +12,13 @@ import "./PageLayout.scss";
 type Props = {
   children?: React.ReactNode;
   searchText: (text: string) => void;
+};
+
+const data = {
+  blockHash: "267ffbc185768a86467b937966149e0d66f15881575540cc747650b235e1986a",
+  blockHeight: 471657,
+  synced: true,
+  bestBlockHeight: 471696,
 };
 
 export const PageLayout: React.FC<Props> = ({ children, searchText }) => {
@@ -34,6 +43,8 @@ export const PageLayout: React.FC<Props> = ({ children, searchText }) => {
       if (unregisterCallback) unregisterCallback();
     };
   }, [location.pathname, navigation]);
+
+  const percentage = calcPercentage(data.bestBlockHeight, data.blockHeight);
 
   return (
     <div className="content">
@@ -60,21 +71,25 @@ export const PageLayout: React.FC<Props> = ({ children, searchText }) => {
           </a>
         </div>
         {(location.pathname === ROUTE_PATH.TXS_HISTORY || location.pathname === ROUTE_PATH.HOME) && (
-          <div className="searchBar">
-            <input
-              className="searchBarInput"
-              type="search"
-              name="q"
-              placeholder="Search"
-              autoFocus
-              required
-              autoComplete="off"
-              aria-label="Search"
-              onChange={(event) => searchText(event.target.value)}
-            />
-          </div>
+          <>
+            <div className="searchBar">
+              <input
+                className="searchBarInput"
+                type="search"
+                name="q"
+                placeholder="Search"
+                autoFocus
+                required
+                autoComplete="off"
+                aria-label="Search"
+                onChange={(event) => searchText(event.target.value)}
+              />
+            </div>
+            <ProgressBar percent={percentage} />
+          </>
         )}
       </div>
+
       <div className="container">{children}</div>
     </div>
   );
