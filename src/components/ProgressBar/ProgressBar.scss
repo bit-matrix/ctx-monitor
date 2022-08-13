@@ -1,0 +1,38 @@
+.progress-bar-main {
+  color: #000 !important;
+  border: 1px solid #78838e;
+  background-color: rgba(255, 255, 255, 0.05) !important;
+  width: 30.75rem;
+  display: flex;
+  flex-direction: column;
+  right: 0;
+  text-align: start;
+  top: 5.5rem;
+  border-radius: 0.25rem;
+  margin-left: 1.5rem;
+  // margin-right: 1.5rem;
+}
+
+.progress-bar-content {
+  padding: 0.9rem 0;
+  font-weight: 600;
+  color: #21272d !important;
+  // background-color: #adfbc4 !important;
+  border-radius: 0.25rem;
+
+  &::before {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  &::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  .progress-bar-percentage {
+    padding-left: 0.5rem;
+  }
+}

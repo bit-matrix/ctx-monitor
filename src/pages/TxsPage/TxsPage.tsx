@@ -16,6 +16,8 @@ export const TxsPage: React.FC<Props> = ({ txs }) => {
     navigate(`${ROUTE_PATH.TX_DETAIL}/${txId}`);
   };
 
+  console.log(txs);
+
   return (
     <div className="transactionsTable">
       <h3 className="transactionsTableTitle">Commitment Transactions</h3>
@@ -23,6 +25,9 @@ export const TxsPage: React.FC<Props> = ({ txs }) => {
         <div className="transactionsTableCell">Transaction ID</div>
         <div className="transactionsTableCell">Pool ID</div>
         <div className="transactionsTableCell">Pool Tx ID</div>
+        <div className="txsHistoryTableCell">Method</div>
+        <div className="txsHistoryTableCell">Success</div>
+        <div className="txsHistoryTableCell">Fail Reason</div>
       </div>
       {txs?.map((data: any, i: number) => (
         <div key={i} className="transactionsTableLinkRow">
@@ -35,6 +40,15 @@ export const TxsPage: React.FC<Props> = ({ txs }) => {
             </div>
             <div className="transactionsTableCell highlightedText" data-label="POOLTXID">
               {data.poolTxInfo?.txId || ""}
+            </div>
+            <div className="transactionsTableCell highlightedText" data-label="METHOD">
+              {data.commitmentData.methodCall || ""}
+            </div>
+            <div className="transactionsTableCell highlightedText" data-label="SUCCESS">
+              {data.poolTxInfo?.isSuccess ? "TRUE" : "FALSE"}
+            </div>
+            <div className="transactionsTableCell highlightedText" data-label="FAILREASON">
+              {data.poolTxInfo?.failReason || ""}
             </div>
           </a>
         </div>
