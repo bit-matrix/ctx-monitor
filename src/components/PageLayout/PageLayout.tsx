@@ -85,7 +85,7 @@ export const PageLayout: React.FC<Props> = ({ children, searchText }) => {
                 onChange={(event) => searchText(event.target.value)}
               />
             </div>
-            <ProgressBar percent={percentage} />
+            {/* <ProgressBar percent={percentage} /> */}
           </>
         )}
       </div>
