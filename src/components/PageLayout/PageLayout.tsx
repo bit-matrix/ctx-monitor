@@ -9,6 +9,7 @@ import { ROUTE_PATH } from "../../app/ROUTE";
 import Home from "../Svg/Icons/Home";
 import { useStatus } from "../../hooks/useStatus";
 import { Loading } from "../Loading/Loading";
+import toastr from "toastr";
 import "./PageLayout.scss";
 
 type Props = {
@@ -40,6 +41,12 @@ export const PageLayout: React.FC<Props> = ({ children, searchText }) => {
       if (unregisterCallback) unregisterCallback();
     };
   }, [location.pathname, navigation]);
+
+  useEffect(() => {
+    if (statusData) {
+      toastr.info(statusData.blockHeight, "New block founded:");
+    }
+  }, [statusData]);
 
   return (
     <div className="content">

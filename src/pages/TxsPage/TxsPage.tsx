@@ -16,8 +16,6 @@ export const TxsPage: React.FC<Props> = ({ txs }) => {
     navigate(`${ROUTE_PATH.TX_DETAIL}/${txId}`);
   };
 
-  console.log(txs);
-
   return (
     <div className="transactionsTable">
       <h3 className="transactionsTableTitle">Commitment Transactions</h3>
