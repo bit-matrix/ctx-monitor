@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Loading } from "../components/Loading/Loading";
 import { PageLayout } from "../components/PageLayout/PageLayout";
-import { useSocket } from "../hooks/useSocket";
+import { useHistory } from "../hooks/useHistory";
 import NotFoundPage from "../pages/NotFound/NotFound";
 import { TxDetailPage } from "../pages/TxDetailPage/TxDetailPage";
 import { TxsHistoryPage } from "../pages/TxsHistoryPage/TxsHistoryPage";
@@ -16,7 +16,7 @@ const AppRouter = () => {
   const [filteredCtx, setFilteredCtx] = useState<any>();
   const [filteredCtxHistory, setFilteredCtxHistory] = useState<any>();
 
-  const { ctxData, ctxHistory, isConnected, ctxLoading } = useSocket();
+  const { ctxData, ctxHistory, isConnected, ctxLoading } = useHistory();
 
   useEffect(() => {
     let txs = [];

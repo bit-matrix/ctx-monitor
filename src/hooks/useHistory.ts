@@ -1,9 +1,10 @@
 import { useCallback, useEffect, useState } from "react";
 import io from "socket.io-client";
 
-export const SOCKET_SERVER_URL = "https://api.basebitmatrix.com/";
+export const API_SOCKET_SERVER_URL = "https://api.basebitmatrix.com/";
+export const DB_SOCKET_SERVER_URL = "https://db.basebitmatrix.com/";
 
-export const useSocket = () => {
+export const useHistory = () => {
   const [isConnected, setIsConnected] = useState<boolean>(false);
   const [ctxData, setCtxData] = useState<any>();
   const [ctxHistory, setCtxHistory] = useState<any>();
@@ -19,7 +20,7 @@ export const useSocket = () => {
   }, []);
 
   useEffect(() => {
-    const socket = io(SOCKET_SERVER_URL);
+    const socket = io(API_SOCKET_SERVER_URL);
 
     socket.on("connect", () => {
       console.log("connect");

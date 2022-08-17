@@ -7,6 +7,9 @@ import { calcPercentage } from "../../helper";
 import { BrowserHistory } from "history";
 import { ROUTE_PATH } from "../../app/ROUTE";
 import Home from "../Svg/Icons/Home";
+import { useStatus } from "../../hooks/useStatus";
+import { Loading } from "../Loading/Loading";
+import toastr from "toastr";
 import "./PageLayout.scss";
 
 type Props = {
@@ -14,15 +17,10 @@ type Props = {
   searchText: (text: string) => void;
 };
 
-const data = {
-  blockHash: "267ffbc185768a86467b937966149e0d66f15881575540cc747650b235e1986a",
-  blockHeight: 471657,
-  synced: true,
-  bestBlockHeight: 471696,
-};
-
 export const PageLayout: React.FC<Props> = ({ children, searchText }) => {
   const [selectedTab, setSelectedTab] = useState<ROUTE_PATH>(ROUTE_PATH.HOME);
+
+  const { statusData, isConnected } = useStatus();
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -44,7 +42,11 @@ export const PageLayout: React.FC<Props> = ({ children, searchText }) => {
     };
   }, [location.pathname, navigation]);
 
-  const percentage = calcPercentage(data.bestBlockHeight, data.blockHeight);
+  useEffect(() => {
+    if (statusData) {
+      toastr.info(statusData.blockHeight, "New block founded:");
+    }
+  }, [statusData]);
 
   return (
     <div className="content">
@@ -85,7 +87,9 @@ export const PageLayout: React.FC<Props> = ({ children, searchText }) => {
                 onChange={(event) => searchText(event.target.value)}
               />
             </div>
-            {/* <ProgressBar percent={percentage} /> */}
+            <div className="status">
+              {isConnected && statusData ? <ProgressBar percent={calcPercentage(statusData.bestBlockHeight, statusData.blockHeight)} /> : <Loading width="1rem" height="1rem" />}
+            </div>
           </>
         )}
       </div>
