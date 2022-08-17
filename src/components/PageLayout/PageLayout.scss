@@ -110,3 +110,9 @@ input[type="search" i]:enabled:read-write:-webkit-any(:focus, :hover)::-webkit-s
   opacity: 1;
   pointer-events: auto;
 }
+
+.status {
+  width: 30.75rem;
+  display: flex;
+  justify-content: center !important;
+}
