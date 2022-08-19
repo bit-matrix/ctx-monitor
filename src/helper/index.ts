@@ -1,3 +1,7 @@
 export const calcPercentage = (total: number, finished: number) => {
-  return Math.floor((finished / total) * 100);
+  const result = (finished / total) * 100;
+  if (result) {
+    return result;
+  }
+  return 0;
 };
