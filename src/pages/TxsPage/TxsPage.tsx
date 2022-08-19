@@ -43,7 +43,7 @@ export const TxsPage: React.FC<Props> = ({ txs }) => {
               {data.commitmentData.methodCall || ""}
             </div>
             <div className="transactionsTableCell highlightedText" data-label="SUCCESS">
-              {data.poolTxInfo?.isSuccess ? "TRUE" : "FALSE"}
+              {data.poolTxInfo ? (data.poolTxInfo.isSuccess ? "TRUE" : "FALSE") : ""}
             </div>
             <div className="transactionsTableCell highlightedText" data-label="FAILREASON">
               {data.poolTxInfo?.failReason || ""}
