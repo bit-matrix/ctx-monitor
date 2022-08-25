@@ -89,7 +89,7 @@ export const TxDetailPage: React.FC<Props> = ({ txs }) => {
           </div>
           <div className="tableItem">
             <div className="tableItemLeft">Input Count</div>
-            <div className="tableItemRight">{data?.commitmentData.inputCount.number}</div>
+            <div className="tableItemRight">{data?.commitmentData.inputCount?.number}</div>
           </div>
           <div className="tableItem">
             <div className="tableItemLeft">nsequenceValue</div>
