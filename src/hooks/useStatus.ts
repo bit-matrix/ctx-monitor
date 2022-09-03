@@ -1,7 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
 import io from "socket.io-client";
-
-export const DB_SOCKET_SERVER_URL = "https://db.basebitmatrix.com/";
+import { DB_SOCKET_SERVER_URL } from "../env";
 
 export const useStatus = () => {
   const [isConnected, setIsConnected] = useState<boolean>(false);
