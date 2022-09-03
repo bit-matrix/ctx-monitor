@@ -1,3 +1,8 @@
+# Run
+
+docker build -t ctx-monitor --build-arg UI_API_URL=http://localhost:8000 --build-arg UI_DB_URL=http://localhost:8001 --build-arg UI_CTX_MONITOR_URL=http://localhost:8081 .
+docker run -d -p 8081:81 ctx-monitor
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
