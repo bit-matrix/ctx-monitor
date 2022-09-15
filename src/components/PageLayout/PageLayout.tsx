@@ -76,7 +76,7 @@ export const PageLayout: React.FC<Props> = ({ children, searchText, statusData }
               navigate(ROUTE_PATH.PRICE);
             }}
           >
-            Price
+            MarketCap
           </a>
         </div>
         {(location.pathname === ROUTE_PATH.TXS_HISTORY || location.pathname === ROUTE_PATH.HOME) && (
