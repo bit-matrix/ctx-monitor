@@ -7,20 +7,19 @@ import { calcPercentage } from "../../helper";
 import { BrowserHistory } from "history";
 import { ROUTE_PATH } from "../../app/ROUTE";
 import Home from "../Svg/Icons/Home";
-import { useStatus } from "../../hooks/useStatus";
 import { Loading } from "../Loading/Loading";
 import toastr from "toastr";
 import "./PageLayout.scss";
+import { AppSync } from "@bitmatrix/models";
 
 type Props = {
   children?: React.ReactNode;
   searchText: (text: string) => void;
+  statusData?: AppSync;
 };
 
-export const PageLayout: React.FC<Props> = ({ children, searchText }) => {
+export const PageLayout: React.FC<Props> = ({ children, searchText, statusData }) => {
   const [selectedTab, setSelectedTab] = useState<ROUTE_PATH>(ROUTE_PATH.HOME);
-
-  const { statusData, isConnected } = useStatus();
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -44,7 +43,7 @@ export const PageLayout: React.FC<Props> = ({ children, searchText }) => {
 
   useEffect(() => {
     if (statusData) {
-      toastr.info(statusData.blockHeight, "New block founded:");
+      toastr.info(statusData.blockHeight.toString(), "New block founded:");
     }
   }, [statusData]);
 
@@ -71,6 +70,14 @@ export const PageLayout: React.FC<Props> = ({ children, searchText }) => {
           >
             History
           </a>
+          <a
+            className={`subNavItem ${selectedTab === ROUTE_PATH.PRICE && "active"}`}
+            onClick={() => {
+              navigate(ROUTE_PATH.PRICE);
+            }}
+          >
+            Price
+          </a>
         </div>
         {(location.pathname === ROUTE_PATH.TXS_HISTORY || location.pathname === ROUTE_PATH.HOME) && (
           <>
@@ -88,7 +95,7 @@ export const PageLayout: React.FC<Props> = ({ children, searchText }) => {
               />
             </div>
             <div className="status">
-              {isConnected && statusData ? <ProgressBar percent={calcPercentage(statusData.bestBlockHeight, statusData.blockHeight)} /> : <Loading width="1rem" height="1rem" />}
+              {statusData ? <ProgressBar percent={calcPercentage(statusData.bestBlockHeight, statusData.blockHeight)} /> : <Loading width="1rem" height="1rem" />}
             </div>
           </>
         )}
