@@ -1,0 +1,167 @@
+.priceTable {
+  padding: 1.875rem 0;
+  border-radius: 0.5rem;
+  box-shadow: 0 20px 32px 0 rgba(0, 0, 0, 0.08);
+  background: rgb(28, 33, 39);
+  background: linear-gradient(90deg, rgba(28, 33, 39, 0.87) 7%, rgba(21, 24, 28, 1) 50%);
+  padding: 1.5rem;
+}
+
+.priceTableRow {
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+}
+
+.priceTableLinkRow {
+  cursor: pointer;
+}
+
+.priceTableRow > * {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.priceTable .priceTableRow.header,
+.priceTable .priceTableRow.transactionData {
+  height: 3.25rem;
+}
+
+.priceTable .priceTableRow.header > *,
+.priceTable .priceTableRow.transactionData > * {
+  font-size: 1rem;
+  padding: 1rem;
+}
+
+.priceTable .priceTableRow.header > * {
+  color: #78838e;
+  font-weight: 600;
+}
+
+.priceTable .priceTableRow.transactionData {
+  border-top: 1px #22242c solid;
+  text-decoration: none;
+  border-radius: 0.25rem;
+}
+
+.priceTable .priceTableRow.transactionData:not(.loading):hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.priceTable .priceTableRow.transactionData > * {
+  font-size: 1rem;
+}
+
+.priceTable .priceTableRow.loading img {
+  display: block;
+  margin: auto;
+  height: 2.8125rem;
+  // width: 2.8125rem;
+  padding: 0.1875 0;
+}
+
+.priceTableRow {
+  color: #fff !important;
+}
+
+.highlightedText {
+  color: #adfbc4 !important;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.priceTable .priceTableRow > div:nth-child(1) {
+  width: 30%;
+}
+.priceTable .priceTableRow > div:nth-child(2) {
+  width: 30%;
+}
+.priceTable .priceTableRow > div:nth-child(3) {
+  width: 8%;
+  text-align: center;
+}
+.priceTable .priceTableRow > div:nth-child(4) {
+  width: 8%;
+  text-align: center;
+}
+
+.asset-content {
+  display: flex;
+  align-items: center;
+}
+
+.asset-ticker {
+  margin-left: 0.75rem;
+}
+
+@media only screen and (max-width: 1200px) {
+  div.priceTableRow.header {
+    display: none !important;
+  }
+
+  .priceTableRow {
+    margin: 0 0 1rem 0;
+    display: flex !important;
+    flex-direction: column !important;
+    height: auto !important;
+    padding: 1.25rem;
+  }
+
+  .transactions-table-link-row {
+    margin-bottom: 1.25rem;
+  }
+
+  .transactions-table-link-row:nth-child(odd) {
+    background: #22242c;
+  }
+
+  .priceTable .priceTableRow.block-data > * {
+    border: none;
+    position: relative;
+    padding-left: 0 !important;
+    padding: 0.625rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100% !important;
+    text-align: right;
+  }
+
+  .priceTableRow {
+    display: block;
+    padding-left: 0;
+  }
+
+  div.priceTableCell {
+    display: flex !important;
+    justify-content: space-between;
+    width: 100% !important;
+    padding: 0.625rem 0;
+    word-break: break-all;
+    text-align: right;
+  }
+
+  .priceTable .priceTableRow > div {
+    padding-left: 0px;
+  }
+
+  div.priceTableCell:before {
+    width: 45%;
+    padding-right: 0.625rem;
+    font-weight: 600;
+    color: #78838e;
+    margin-right: 3.125rem;
+    word-break: keep-all;
+  }
+
+  div.priceTableCell:before {
+    content: attr(data-label);
+    text-align: left;
+    width: auto;
+  }
+
+  .priceTable .priceTableRow.transactionData > * {
+    padding-left: 0;
+  }
+}
