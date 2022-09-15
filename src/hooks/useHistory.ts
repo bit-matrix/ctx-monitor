@@ -1,11 +1,14 @@
 import { useCallback, useEffect, useState } from "react";
 import io from "socket.io-client";
 
-export const API_SOCKET_SERVER_URL = "https://api.basebitmatrix.com/";
-export const DB_SOCKET_SERVER_URL = "https://db.basebitmatrix.com/";
+// export const API_SOCKET_SERVER_URL = "https://api.basebitmatrix.com/";
+// export const DB_SOCKET_SERVER_URL = "https://db.basebitmatrix.com/";
+
+export const API_SOCKET_SERVER_URL = "//127.0.0.1:9901/";
+export const DB_SOCKET_SERVER_URL = "//127.0.0.1:4499/";
 
 export const useHistory = () => {
-  const [isConnected, setIsConnected] = useState<boolean>(false);
+  const [historyIsConnected, setHistoryIsConnected] = useState<boolean>(false);
   const [ctxData, setCtxData] = useState<any>();
   const [ctxHistory, setCtxHistory] = useState<any>();
   const [ctxLoading, setCtxLoading] = useState<boolean>(true);
@@ -24,12 +27,12 @@ export const useHistory = () => {
 
     socket.on("connect", () => {
       console.log("connect");
-      setIsConnected(true);
+      setHistoryIsConnected(true);
     });
 
     socket.on("disconnect", () => {
       console.log("disconnect");
-      setIsConnected(false);
+      setHistoryIsConnected(false);
     });
 
     socket.on("redis-values", (data) => {
@@ -44,13 +47,13 @@ export const useHistory = () => {
       socket.off("connect");
       socket.off("disconnect");
       socket.off("pong");
-      setIsConnected(false);
+      setHistoryIsConnected(false);
       console.log("cleanup");
     };
   }, [onCtxData, onCtxHistory]);
 
   return {
-    isConnected,
+    historyIsConnected,
     ctxLoading,
     ctxData,
     ctxHistory,
