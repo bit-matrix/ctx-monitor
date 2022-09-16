@@ -72,17 +72,30 @@
 }
 
 .priceTable .priceTableRow > div:nth-child(1) {
-  width: 30%;
+  width: 5%;
 }
 .priceTable .priceTableRow > div:nth-child(2) {
-  width: 30%;
+  width: 15%;
+  text-align: left;
 }
 .priceTable .priceTableRow > div:nth-child(3) {
-  width: 8%;
-  text-align: center;
+  width: 15%;
+  text-align: left;
 }
 .priceTable .priceTableRow > div:nth-child(4) {
-  width: 8%;
+  width: 15%;
+  text-align: left;
+}
+.priceTable .priceTableRow > div:nth-child(5) {
+  width: 15%;
+  text-align: left;
+}
+.priceTable .priceTableRow > div:nth-child(6) {
+  width: 15%;
+  text-align: left;
+}
+.priceTable .priceTableRow > div:nth-child(7) {
+  width: 10%;
   text-align: center;
 }
 
@@ -94,6 +107,14 @@
 .asset-ticker {
   margin-left: 0.75rem;
 }
+
+.rowTitle {
+  min-width: 6rem;
+}
+
+// .price-arrow {
+//   padding-right: 0.5rem;
+// }
 
 @media only screen and (max-width: 1200px) {
   div.priceTableRow.header {

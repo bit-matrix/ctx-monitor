@@ -18,7 +18,7 @@ const AppRouter = () => {
   const [filteredCtx, setFilteredCtx] = useState<any>();
   const [filteredCtxHistory, setFilteredCtxHistory] = useState<any>();
 
-  const { ctxData, ctxHistory, historyIsConnected, ctxLoading } = useHistory();
+  const { ctxData, ctxHistory, historyIsConnected, ctxLoading, charts } = useHistory();
   const { statusData, priceses } = useDatabase();
 
   useEffect(() => {
@@ -51,7 +51,7 @@ const AppRouter = () => {
                 {/* <Route path={ROUTE_PATH.TXS} element={<TxsPage txs={filteredCtx} />} /> */}
                 <Route path={ROUTE_PATH.TXS_HISTORY} element={<TxsHistoryPage txs={filteredCtxHistory} />} />
                 <Route path={`${ROUTE_PATH.TX_DETAIL}/:id`} element={<TxDetailPage txs={ctxData} />} />
-                <Route path={ROUTE_PATH.PRICE} element={<AssetPrice priceses={priceses} />} />
+                <Route path={ROUTE_PATH.PRICE} element={<AssetPrice priceses={priceses} charts={charts} />} />
                 <Route path={ROUTE_PATH.NOT_FOUND} element={<NotFoundPage />} />
               </Routes>
             ) : (
