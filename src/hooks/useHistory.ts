@@ -9,6 +9,7 @@ export const useHistory = () => {
   const [ctxData, setCtxData] = useState<any>();
   const [ctxHistory, setCtxHistory] = useState<any>();
   const [ctxLoading, setCtxLoading] = useState<boolean>(true);
+  const [charts, setCharts] = useState<any>();
 
   const onCtxData = useCallback((data: any) => {
     setCtxData(data);
@@ -17,6 +18,10 @@ export const useHistory = () => {
 
   const onCtxHistory = useCallback((data: any) => {
     setCtxHistory(data);
+  }, []);
+
+  const onCharts = useCallback((data: any) => {
+    setCharts(data);
   }, []);
 
   useEffect(() => {
@@ -40,6 +45,10 @@ export const useHistory = () => {
       if (data) onCtxHistory(data);
     });
 
+    socket.on("poolschart", (data) => {
+      if (data) onCharts(data);
+    });
+
     return () => {
       socket.off("connect");
       socket.off("disconnect");
@@ -47,12 +56,13 @@ export const useHistory = () => {
       setHistoryIsConnected(false);
       console.log("cleanup");
     };
-  }, [onCtxData, onCtxHistory]);
+  }, [onCharts, onCtxData, onCtxHistory]);
 
   return {
     historyIsConnected,
     ctxLoading,
     ctxData,
     ctxHistory,
+    charts,
   };
 };
