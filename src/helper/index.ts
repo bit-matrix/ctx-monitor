@@ -13,7 +13,7 @@ export const calcPercentage = (total: number, finished: number) => {
 
 export const calcPrice = (pools?: Pool[]): Price[] | undefined => {
   if (pools && pools.length > 0) {
-    let lbtcPrice: Price = { assetHash: TESTNET_ASSET_ID.LBTC, ticker: "tL-BTC", price: 0 };
+    let lbtcPrice;
     const usdtLbtcPools = pools.filter((pl) => {
       return pl.token.assetHash === TESTNET_ASSET_ID.LBTC && pl.quote.assetHash === TESTNET_ASSET_ID.USDT;
     });
@@ -26,18 +26,23 @@ export const calcPrice = (pools?: Pool[]): Price[] | undefined => {
       const tvlSort = usdtLbtcPools.sort((a, b) => Number(b.quote.value) - Number(a.quote.value));
       const bestPool = tvlSort[0];
 
-      lbtcPrice = { assetHash: bestPool.token.assetHash, ticker: bestPool.token.ticker, price: Number(bestPool.quote.value) / Number(bestPool.token.value) };
+      lbtcPrice = { poolId: bestPool.id, assetHash: bestPool.token.assetHash, ticker: bestPool.token.ticker, price: Number(bestPool.quote.value) / Number(bestPool.token.value) };
+
+      const otherPoolsPrices = otherPools.map((pool) => {
+        return {
+          poolId: pool.id,
+          assetHash: pool.quote.assetHash,
+          ticker: pool.quote.ticker,
+          price: 1,
+        };
+      });
+
+      const prices = [lbtcPrice, ...otherPoolsPrices];
+      return prices;
     }
-
-    const otherPoolsPrices = otherPools.map((pool) => {
-      return {
-        assetHash: pool.quote.assetHash,
-        ticker: pool.quote.ticker,
-        price: 1,
-      };
-    });
-
-    const prices = [lbtcPrice, ...otherPoolsPrices];
-    return prices;
   }
+};
+
+export const calculateUsdtPrice = (lbtcPrice: number, assetAmount: number): number => {
+  return (lbtcPrice / 100000000) * assetAmount;
 };
