@@ -22,6 +22,33 @@ export const calcPrice = (pools?: Pool[]): Price[] | undefined => {
       return index === self.findIndex((t) => t.quote.assetHash === pool.quote.assetHash && pool.quote.assetHash !== TESTNET_ASSET_ID.LBTC);
     });
 
+    const quoteAssetHashes = pools.map((p) => p.quote.assetHash).filter((assetHash, index, self) => index === self.findIndex((t) => t === assetHash));
+    const tokenPools = pools.filter((pool) => !quoteAssetHashes.includes(pool.token.assetHash));
+
+    const toFindDuplicates = () => {
+      let arry: Pool[] = [];
+      for (let i = 0; i < tokenPools.length; i++) {
+        for (let j = 0; j < tokenPools.length; j++) {
+          if (i !== j) {
+            if (tokenPools[i].token.assetHash === tokenPools[j].token.assetHash) {
+              if (tokenPools[i].tokenPrice > tokenPools[j].tokenPrice) {
+                arry.push(tokenPools[i]);
+              }
+              break;
+            }
+          }
+        }
+      }
+      return arry;
+    };
+
+    const duplicatePools = toFindDuplicates();
+    const newTokenPools = [...duplicatePools];
+    const nonUniquePools = newTokenPools.filter((arr) => tokenPools.some((pool) => pool.token.assetHash === arr.token.assetHash));
+    const uniquePool = tokenPools.filter((tp) => nonUniquePools.every((p) => p.token.assetHash !== tp.token.assetHash));
+
+    const lastTokenPools = newTokenPools.concat(uniquePool);
+
     if (usdtLbtcPools.length > 0) {
       const tvlSort = usdtLbtcPools.sort((a, b) => Number(b.quote.value) - Number(a.quote.value));
       const bestPool = tvlSort[0];
@@ -37,7 +64,16 @@ export const calcPrice = (pools?: Pool[]): Price[] | undefined => {
         };
       });
 
-      const prices = [lbtcPrice, ...otherPoolsPrices];
+      const otherTokenPoolsPrices = lastTokenPools.map((pool) => {
+        return {
+          poolId: pool.id,
+          assetHash: pool.token.assetHash,
+          ticker: pool.token.ticker,
+          price: pool.tokenPrice,
+        };
+      });
+
+      const prices = [lbtcPrice, ...otherPoolsPrices, ...otherTokenPoolsPrices];
       return prices;
     }
   }
