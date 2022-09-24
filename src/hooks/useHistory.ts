@@ -1,8 +1,8 @@
 import { useCallback, useEffect, useState } from "react";
 import io from "socket.io-client";
 
-export const API_SOCKET_SERVER_URL = "https://api.basebitmatrix.com/";
-export const DB_SOCKET_SERVER_URL = "https://db.basebitmatrix.com/";
+export const DB_SOCKET_SERVER_URL = "https://db.bitmatrix.voidfile.com/";
+export const API_SOCKET_SERVER_URL = "https://api.bitmatrix.voidfile.com/";
 
 export const useHistory = () => {
   const [historyIsConnected, setHistoryIsConnected] = useState<boolean>(false);

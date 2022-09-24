@@ -4,8 +4,8 @@ import io from "socket.io-client";
 import { calcPrice } from "../helper";
 import { Price } from "../model/Price";
 
-export const DB_SOCKET_SERVER_URL = "https://db.basebitmatrix.com/";
-export const API_SOCKET_SERVER_URL = "https://api.basebitmatrix.com/";
+export const DB_SOCKET_SERVER_URL = "https://db.bitmatrix.voidfile.com/";
+export const API_SOCKET_SERVER_URL = "https://api.bitmatrix.voidfile.com/";
 
 export const useDatabase = () => {
   const [databaseIsConnected, setDatabaseIsConnected] = useState<boolean>(false);
