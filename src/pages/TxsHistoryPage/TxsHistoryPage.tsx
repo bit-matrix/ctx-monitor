@@ -20,7 +20,7 @@ export const TxsHistoryPage: React.FC<Props> = ({ txs }) => {
       </div>
       {txs?.map((d: any, i: number) => (
         <div key={i} className="txsHistoryTableLinkRow">
-          <a className="txsHistoryTableRow transactionData" href={`https://blockstream.info/liquidtestnet/tx/${d.val.txId}`} target="_blank" rel="noreferrer">
+          <a className="txsHistoryTableRow transactionData" href={`https://blockstream.info/liquid/tx/${d.val.txId}`} target="_blank" rel="noreferrer">
             <div className="txsHistoryTableCell highlightedText" data-label="POOLID">
               {d.val.poolId}
             </div>
