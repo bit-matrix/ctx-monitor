@@ -22,6 +22,11 @@
   vertical-align: middle;
 }
 
+.txsHistoryPageHeader {
+  display: flex;
+  justify-content: space-between;
+}
+
 .txsHistoryTable .txsHistoryTableRow.header,
 .txsHistoryTable .txsHistoryTableRow.transactionData {
   height: 3.25rem;

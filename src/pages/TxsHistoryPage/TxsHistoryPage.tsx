@@ -10,7 +10,10 @@ export const TxsHistoryPage: React.FC<Props> = ({ txs }) => {
 
   return (
     <div className="txsHistoryTable">
+      <div className="txsHistoryPageHeader">
       <h3 className="txsHistoryTableTitle">Commitment Transactions History</h3>
+      <h3 className="txsHistoryTableTitle">Total Tx Count: {txs?.length}</h3>
+      </div>
       <div className="txsHistoryTableRow header">
         <div className="txsHistoryTableCell">Pool ID</div>
         <div className="txsHistoryTableCell">Transaction ID</div>
