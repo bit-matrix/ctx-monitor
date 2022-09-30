@@ -1,5 +1,5 @@
 import { Pool } from "@bitmatrix/models";
-import { TESTNET_ASSET_ID } from "../model/ASSET_ID";
+import { ASSET_ID } from "../model/ASSET_ID";
 import { Price } from "../model/Price";
 
 export const calcPercentage = (total: number, finished: number) => {
@@ -15,11 +15,11 @@ export const calcPrice = (pools?: Pool[]): Price[] | undefined => {
   if (pools && pools.length > 0) {
     let lbtcPrice;
     const usdtLbtcPools = pools.filter((pl) => {
-      return pl.token.assetHash === TESTNET_ASSET_ID.LBTC && pl.quote.assetHash === TESTNET_ASSET_ID.USDT;
+      return pl.token.assetHash === ASSET_ID.LBTC && pl.quote.assetHash === ASSET_ID.USDT;
     });
 
     const otherPools = pools.filter((pool, index, self) => {
-      return index === self.findIndex((t) => t.quote.assetHash === pool.quote.assetHash && pool.quote.assetHash !== TESTNET_ASSET_ID.LBTC);
+      return index === self.findIndex((t) => t.quote.assetHash === pool.quote.assetHash && pool.quote.assetHash !== ASSET_ID.LBTC);
     });
 
     const quoteAssetHashes = pools.map((p) => p.quote.assetHash).filter((assetHash, index, self) => index === self.findIndex((t) => t === assetHash));
@@ -43,6 +43,7 @@ export const calcPrice = (pools?: Pool[]): Price[] | undefined => {
     };
 
     const duplicatePools = toFindDuplicates();
+
     const newTokenPools = [...duplicatePools];
     const nonUniquePools = newTokenPools.filter((arr) => tokenPools.some((pool) => pool.token.assetHash === arr.token.assetHash));
     const uniquePool = tokenPools.filter((tp) => nonUniquePools.every((p) => p.token.assetHash !== tp.token.assetHash));
@@ -73,7 +74,17 @@ export const calcPrice = (pools?: Pool[]): Price[] | undefined => {
         };
       });
 
-      const prices = [lbtcPrice, ...otherPoolsPrices, ...otherTokenPoolsPrices];
+      let prices = [lbtcPrice];
+
+      if (pools.length === 1) {
+        prices = [lbtcPrice, ...otherPoolsPrices];
+      } else {
+        prices = [lbtcPrice, ...otherPoolsPrices, ...otherTokenPoolsPrices];
+      }
+
+      const uniqueFinalPrices: any = [];
+
+      console.log(uniqueFinalPrices);
       return prices;
     }
   }

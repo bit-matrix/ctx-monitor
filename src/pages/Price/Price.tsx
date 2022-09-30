@@ -3,10 +3,10 @@ import { Price } from "../../model/Price";
 import Numeral from "numeral";
 import { AssetIcon } from "../../components/AssetIcon/AssetIcon";
 import { XyChart } from "../../components/XyChart/XyChart";
-import { TESTNET_ASSET_ID } from "../../model/ASSET_ID";
 import { calculateUsdtPrice } from "../../helper";
 import { Arrow } from "../../components/Arrow/Arrow";
 import "./Price.scss";
+import { ASSET_ID } from "../../model/ASSET_ID";
 
 type Props = {
   priceses?: Price[];
@@ -19,11 +19,11 @@ export const AssetPrice: React.FC<Props> = ({ priceses, charts }) => {
   const summary = (assetHash: string, poolId: string, price: number, charts?: any[]) => {
     const currentChart = charts?.find((cs) => cs.poolId === poolId);
 
-    const tvl = assetHash === TESTNET_ASSET_ID.LBTC && currentChart ? price * currentChart.tvl.todayValue : currentChart?.tvl.todayValue || 0;
+    const tvl = assetHash === ASSET_ID.LBTC && currentChart ? price * currentChart.tvl.todayValue : currentChart?.tvl.todayValue || 0;
 
-    const fees = assetHash === TESTNET_ASSET_ID.LBTC ? calculateUsdtPrice(price || 0, currentChart?.fees.todayValue || 0) : currentChart?.fees.todayValue || 0;
+    const fees = assetHash === ASSET_ID.LBTC ? calculateUsdtPrice(price || 0, currentChart?.fees.todayValue || 0) : currentChart?.fees.todayValue || 0;
 
-    const volume = assetHash === TESTNET_ASSET_ID.LBTC ? calculateUsdtPrice(price || 0, currentChart?.volume.todayValue || 0) : currentChart?.volume.todayValue || 0;
+    const volume = assetHash === ASSET_ID.LBTC ? calculateUsdtPrice(price || 0, currentChart?.volume.todayValue || 0) : currentChart?.volume.todayValue || 0;
 
     return { currentChart, tvl, fees, volume };
   };
