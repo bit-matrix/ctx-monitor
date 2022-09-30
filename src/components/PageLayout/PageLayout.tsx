@@ -43,7 +43,7 @@ export const PageLayout: React.FC<Props> = ({ children, searchText, statusData }
 
   useEffect(() => {
     if (statusData) {
-      toastr.info(statusData.blockHeight.toString(), "New block founded:");
+      toastr.info(statusData.blockHeight.toString(), "New block found:");
     }
   }, [statusData]);
 
